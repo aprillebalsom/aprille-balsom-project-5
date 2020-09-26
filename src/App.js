@@ -1,27 +1,12 @@
 import React from 'react';
 import firebase from "./firebase";
 // import flora from './assets/flora.png';
-
+import Wishlist from './Wishlist.js'
 import Footer from './Footer.js';
 
 import './App.css';
 
-//PROJECT 5 PSEUDO CODE
-
-// create item (TBD what items these will be) class function component that will display the item including: photo, title and "add to wishlist" button
-
-// the app component's state will change (setState()) when the user clicks the "add to wishlist" button (event)
-// the wishlist item the user selected will be stored in firebase thus changing the state 
-//when the state is updated, the app will pass the wishlist component an updated list through props 
-
-// create wishlist class component
-// an item  will be added to the list when a user clicks the button that changes the app component's state
-// the wishlist items will then be updated using props and render onto the page
-
-// create a footer function component that displays the footer info 
-
 class App extends React.Component {
-
   constructor() {
     super();
 
@@ -33,192 +18,148 @@ class App extends React.Component {
 
   componentDidMount() {
 
+    //get wallpaper information from database
     const dbRef = firebase.database().ref();
 
     dbRef.on("value", (response) => {
-
       const toSetState = [];
       const data = response.val();
-     
 
       for (let key in data.wallpapers) {
-        toSetState.push(data.wallpapers[key]);
+        toSetState.push({
+          item: data.wallpapers[key],
+          key: key,
+        });
       }
 
       this.setState({
         wallpapers: toSetState,
       });
-
     });
 
+    //get wishlist information from database
     const dbRefWishlist = firebase.database().ref("wishlistItems");
 
     dbRefWishlist.on("value", (response) => {
       const toSetState = [];
       const data = response.val();
 
-      // console.log(data);
+      
 
       for (let key in data) {
-
-        toSetState.push(data[key]);
-    
+        toSetState.push(
+          data[key]
+        );
       }
 
       this.setState({
         wishlist: toSetState,
       });
-      
     });
 
-    console.log(this.state.wishlist);
+    // console.log(this.state.wishlist);
   }
 
-  handleAdd = (wishlistItem) => {
-
-
-    // this.setState({
-    //   wishlist: wishlistItem,
-    // })
-
-    console.log(this.state.wishlist);
+  //create a function that adds an item to the wishlist, when a user clicks the "add to wishlist" button
+  addItem = (wishlistItem) => {
+    // console.log(this.state.wishlist);
     const dbRef = firebase.database().ref("wishlistItems");
-    // const key = wishlistItem;
 
-    // if (key.equalTo(wishlistItem)) {
-    //   alert('oh no');
-    // } else{
-      dbRef.push(wishlistItem);
-    //   console.log('yay added')
-    // }
+    dbRef.push(wishlistItem);
 
-   
+    // TODO add if statement, maybe have to use filter?!
+  };
 
 
+  // create a function to remove items from the wishlist + firebase when the user clicks the "garbage can" button
+  removeItem = (itemToBeRemoved) => {
+    console.log(itemToBeRemoved);
 
+   const dbRef = firebase.database().ref("wishlistItems");
+   dbRef.child(itemToBeRemoved).remove();
 
-  }
+ 
+    const oldWishlist = [...this.state.wishlist];
+    const updateWishlist = oldWishlist.filter((_, index) => {
+      
+      return itemToBeRemoved !== index;
+    });
 
-  // TODO find out why this isn't working
-  // if (toSetState.includes(wishlistItem)) {
-
-  //   alert('wow, so much love! this wallpaper has already been added to your wishlist');
-
-  // } else {
-
-
-
-
-
-
-  // toS.push(wishlistItem);
-  // console.log(toSetState);
-
-
-  // this.setState({
-  //   wishlist: wishlistItem,
-  // });
-
-
-
-
-  //  const dbRef = firebase.database().ref("wishlistItems");
-  //  dbRef.push(wishlistItem);
-
-
-  // console.log(this.state.wishlist);
-
-  // if the user clicks on a button twice, notify them that it has already been added
-
-
-  // };
+    
+    this.setState({
+      wishlist: updateWishlist,
+    });
+  };
 
   render() {
-
     return (
       <div className="App">
+        
+        {/* start of header */}
         <header>
           <h1>
             <span className="sunday">sunday</span>
             <span className="homework">homework</span>
           </h1>
+
+          <div className="wishlist">
+            <div className="item">
+              <ul>
+                {this.state.wishlist.map((listItem) => {
+                  return (
+                    <div>
+                      <Wishlist
+                        name={listItem.item.title}
+                        imageSrc={listItem.item.src}
+                        imageAlt={listItem.item.alt}
+                        removeItem={() => {
+                          this.removeItem(listItem);
+                        }}
+                        key={listItem.key}
+                      />
+
+                      {/* {console.log(this.state.wishlist)} */}
+                    </div>
+                  );
+                })}
+
+                
+              </ul>
+            </div>
+          </div>
         </header>
-
+        
+        {/* main content - items */}
         <div className="items">
-
           <h2>meet the doodles</h2>
 
           <ul>
-          
-            {this.state.wallpapers.map((wallpaper,index) => {
-
+            {this.state.wallpapers.map((wallpaper) => {
               return (
-                <li key={wallpaper, index}>
-                 
+                <li key={(wallpaper.key)}>
                   <div className="item">
-
                     {/* TODO get images to load */}
-                    <img
-                      src={wallpaper.src}
-                      alt={wallpaper.alt}
-                    />
+                    <img src={wallpaper.item.src} alt={wallpaper.item.alt} />
 
-                    <p>{wallpaper.title}</p>
-
+                    <p>{wallpaper.item.title}</p>
                   </div>
 
                   <button
                     onClick={() => {
-                      this.handleAdd(wallpaper)
+                      this.addItem(wallpaper);
                     }}
                   >
-                    add to wishlist
+                  Add to wishlist
                   </button>
 
-               
                 </li>
-
               );
-
             })}
-
           </ul>
-
         </div>
 
-        <div className="wishlist">
-
-          <div className="item">
-
-            {this.state.wishlist.map((listItem, index) => {
-
-              return (
-                <li key={listItem, index}>
-
-                  <div className="item">
-
-                   
-                    <img
-                      src={listItem.src}
-                      alt={listItem.alt}
-                    />
-
-                    <p>{listItem.title}</p>
-
-                  </div>
-
-                </li>
-
-              );
-
-            })}
-
-          </div>
-
-        </div>
-
+        {/* import of footer */}
         <Footer />
-
       </div>
     );
   }
