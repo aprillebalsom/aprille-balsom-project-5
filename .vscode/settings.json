@@ -1,0 +1,17 @@
+{
+    "bracket-pair-colorizer-2.highlightActiveScope": true,
+    "bracket-pair-colorizer-2.colors": [
+
+
+        "cadetblue",
+        "snow",
+        "tomato"
+    ],
+    "bracket-pair-colorizer-2.activeScopeCSS": [
+
+        "borderStyle : solid",
+        "borderWidth : 1px",
+        "borderColor : {color}",
+        "opacity: 0.5"
+    ]
+}
