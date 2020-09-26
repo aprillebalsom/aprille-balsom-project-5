@@ -1,8 +1,10 @@
 import React from 'react';
 import firebase from "./firebase";
+import Nav from "./Nav.js";
 // import flora from './assets/flora.png';
-import Wishlist from './Wishlist.js'
+import Wishlist from './Wishlist.js';
 import Footer from './Footer.js';
+
 
 import './App.css';
 
@@ -47,9 +49,11 @@ class App extends React.Component {
       
 
       for (let key in data) {
-        toSetState.push(
-          data[key]
-        );
+
+        toSetState.push({
+          key: key,
+          item:data[key].item,
+        });
       }
 
       this.setState({
@@ -75,68 +79,62 @@ class App extends React.Component {
   removeItem = (itemToBeRemoved) => {
     console.log(itemToBeRemoved);
 
-   const dbRef = firebase.database().ref("wishlistItems");
-   dbRef.child(itemToBeRemoved).remove();
-
- 
-    const oldWishlist = [...this.state.wishlist];
-    const updateWishlist = oldWishlist.filter((_, index) => {
-      
-      return itemToBeRemoved !== index;
-    });
-
-    
-    this.setState({
-      wishlist: updateWishlist,
-    });
+    const dbRef = firebase.database().ref("wishlistItems")
+    dbRef.child(itemToBeRemoved).remove();
   };
 
   render() {
     return (
       <div className="App">
-        
-        {/* start of header */}
         <header>
-          <h1>
-            <span className="sunday">sunday</span>
-            <span className="homework">homework</span>
-          </h1>
+          {/* <div className=""> */}
+          <Nav />
+          <div className="flex-container wrapper">
+            <section className="header-text">
+              <h1>
+                <span className="sunday">Sunday</span>
+                <span className="homework">Homework</span>
+              </h1>
+              <p>created on a lazy sunday morning, with coffee in hand</p>
+            </section>
+            <section className="wishlist">
+              {/* <h2>Wishlist</h2> */}
 
-          <div className="wishlist">
-            <div className="item">
               <ul>
                 {this.state.wishlist.map((listItem) => {
                   return (
-                    <div>
-                      <Wishlist
-                        name={listItem.item.title}
-                        imageSrc={listItem.item.src}
-                        imageAlt={listItem.item.alt}
-                        removeItem={() => {
-                          this.removeItem(listItem);
-                        }}
-                        key={listItem.key}
-                      />
+                    // <div className="wishlist-item">
+                    <Wishlist
+                      name={listItem.item.title}
+                      imageSrc={listItem.item.src}
+                      imageAlt={listItem.item.alt}
+                      removeItem={() => {
+                        this.removeItem(listItem.key);
+                      }}
+                      key={listItem.key}
+                    />
 
-                      {/* {console.log(this.state.wishlist)} */}
-                    </div>
+                    // </div>
                   );
                 })}
-
-                
               </ul>
-            </div>
+            </section>
+            {/* </div> */}
           </div>
         </header>
-        
+
         {/* main content - items */}
-        <div className="items">
-          <h2>meet the doodles</h2>
+        <div className="items wrapper">
+          <h2>Meet the Doodles</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
+            molestias.
+          </p>
 
           <ul>
             {this.state.wallpapers.map((wallpaper) => {
               return (
-                <li key={(wallpaper.key)}>
+                <li key={wallpaper.key}>
                   <div className="item">
                     {/* TODO get images to load */}
                     <img src={wallpaper.item.src} alt={wallpaper.item.alt} />
@@ -149,9 +147,8 @@ class App extends React.Component {
                       this.addItem(wallpaper);
                     }}
                   >
-                  Add to wishlist
+                    Add to wishlist
                   </button>
-
                 </li>
               );
             })}
