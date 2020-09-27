@@ -1,12 +1,23 @@
-import React from 'react';
+import React from 'react'
 import firebase from "./firebase";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+  faShoppingCart,
+  faStar,
+  faCodeBranch,
+} from "@fortawesome/free-solid-svg-icons";
+
+import "./App.css";
+
 import Nav from "./Nav.js";
 // import flora from './assets/flora.png';
 import Wishlist from './Wishlist.js';
 import Footer from './Footer.js';
 
+library.add(fab, faShoppingCart, faStar, faCodeBranch);
 
-import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -98,12 +109,12 @@ class App extends React.Component {
               <p className="tagline">created on a lazy sunday morning, with coffee in hand</p>
             </section>
             <section className="wishlist">
-              {/* <h2>Wishlist</h2> */}
+              <h2>Wishlist</h2>
 
               <ul>
                 {this.state.wishlist.map((listItem) => {
                   return (
-                    // <div className="wishlist-item">
+                  
                     <Wishlist
                       name={listItem.item.title}
                       imageSrc={listItem.item.src}
@@ -114,12 +125,11 @@ class App extends React.Component {
                       key={listItem.key}
                     />
 
-                    // </div>
                   );
                 })}
               </ul>
             </section>
-            {/* </div> */}
+          
           </div>
         </header>
 
@@ -127,7 +137,7 @@ class App extends React.Component {
         <div className="items wrapper">
           <h2>Meet the Doodles</h2>
           <p>
-            each wallpaper is shot on 35mm film and | or drawn by hand
+            digital wallpapers drawn by hand + shot on 35mm film
           </p>
 
           <ul>

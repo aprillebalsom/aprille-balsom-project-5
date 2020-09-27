@@ -1,11 +1,6 @@
 import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { faStar} from "@fortawesome/free-solid-svg-icons";
-
-const shoppingCart = <FontAwesomeIcon icon={faShoppingCart} />;
-const star = <FontAwesomeIcon icon={faStar} />;
 
 
 const Nav = () => {
@@ -32,13 +27,17 @@ const Nav = () => {
             </ul>
           </nav>
 
-          <ul>
+          <ul className="nav-icons">
             <li>
-              <a href="">{star}</a>
+              <a href="#">
+                <FontAwesomeIcon icon="star" />
+              </a>
             </li>
 
             <li>
-              <a href="">{shoppingCart}</a>
+              <a href="#">
+                <FontAwesomeIcon icon="shopping-cart" />
+              </a>
             </li>
           </ul>
         </div>
