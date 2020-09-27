@@ -125,10 +125,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Nav />
         <header>
           {/* <div className=""> */}
           {/* <Nav listFunc={this.showList} /> */}
-          <Nav />
+
           <div className="flex-container wrapper">
             <section className="header-text">
               <h1>
@@ -169,32 +170,33 @@ class App extends React.Component {
           </div>
         </header>
 
-        <div className="items wrapper">
-          <h2>Meet the Doodles</h2>
-          <p>digital wallpapers drawn by hand + shot on 35mm film</p>
+        <div className="items">
+          <div className="wrapper">
+            <h2>Meet the Doodles</h2>
+            <p>digital wallpapers drawn by hand + shot on 35mm film</p>
 
-          <ul>
-            {this.state.wallpapers.map((wallpaper) => {
-              return (
-                <li key={wallpaper.key}>
-                  <div className="item">
-                
-                    <img src={wallpaper.item.src} alt={wallpaper.item.alt} />
+            <ul>
+              {this.state.wallpapers.map((wallpaper) => {
+                return (
+                  <li key={wallpaper.key}>
+                    <div className="item">
+                      <img src={wallpaper.item.src} alt={wallpaper.item.alt} />
 
-                    <p>{wallpaper.item.title}</p>
-                  </div>
+                      <p>{wallpaper.item.title}</p>
+                    </div>
 
-                  <button
-                    onClick={() => {
-                      this.addItem(wallpaper);
-                    }}
-                  >
-                    Add to wishlist
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+                    <button
+                      onClick={() => {
+                        this.addItem(wallpaper);
+                      }}
+                    >
+                      Add to wishlist
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
 
         <Footer />
