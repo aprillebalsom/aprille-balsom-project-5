@@ -1,21 +1,21 @@
 import React from 'react';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Wishlist extends React.Component {
 
-    render(){
-        return (
-       
-          <li key={this.props.key}>
-            <p>{this.props.key}</p>
-            <img src={this.props.imageSrc} alt={this.props.imageAlt} />
+  render(){
+    return (
+      <li className="wishlist-flex" key={this.props.key}>
+        
+        <img src={this.props.imageSrc} alt={this.props.imageAlt} />
 
-            <p>{this.props.name}</p>
-            <button onClick={this.props.removeItem}>garbage icon</button>
-          </li>
-    
-        );
-    }
+        <p>{this.props.name}</p>
+        <button onClick={this.props.removeItem}>
+          <FontAwesomeIcon icon={this.props.trash} />
+        </button>
+      </li>
+    );
+  }
 }
 
 

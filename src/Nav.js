@@ -3,7 +3,35 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-const Nav = () => {
+class Nav extends React.Component {
+  // constructor() {
+  //   super();
+
+  //   this.state = {
+  //     listShown: false,
+  //   };
+  // }
+
+  // showList = () => {
+  //   let tosetListState = this.listShown;
+
+  //   tosetListState = true;
+
+  //   this.setState({
+  //     listShown: tosetListState,
+  //   }, () => {
+  //     this.sendToParent(this.state.listShown);
+  //   })
+
+  //   console.log(this.state.listShown);
+  // }
+
+  // sendToParent = (stateofList) => {
+  //   this.props.listFunc(stateofList);
+  // }
+  
+
+  render() {
     return (
       <div className="nav">
         <div className="flex-header wrapper">
@@ -29,20 +57,21 @@ const Nav = () => {
 
           <ul className="nav-icons">
             <li>
-              <a href="#">
+              <button onClick={this.showList}>
                 <FontAwesomeIcon icon="star" />
-              </a>
+              </button>
             </li>
 
             <li>
-              <a href="#">
+              <button>
                 <FontAwesomeIcon icon="shopping-cart" />
-              </a>
+              </button>
             </li>
           </ul>
         </div>
       </div>
     );
+  }
 } 
 
 export default Nav;

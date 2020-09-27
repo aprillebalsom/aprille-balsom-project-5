@@ -7,7 +7,10 @@ import {
   faShoppingCart,
   faStar,
   faCodeBranch,
+  faTrash,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./App.css";
 
@@ -26,6 +29,8 @@ class App extends React.Component {
     this.state = {
       wallpapers: [],
       wishlist: [],
+      listShown: false,
+      
     };
   }
 
@@ -57,14 +62,14 @@ class App extends React.Component {
       const toSetState = [];
       const data = response.val();
 
-      
-
       for (let key in data) {
 
         toSetState.push({
           key: key,
           item:data[key].item,
         });
+
+        console.log(data[key])
       }
 
       this.setState({
@@ -94,11 +99,35 @@ class App extends React.Component {
     dbRef.child(itemToBeRemoved).remove();
   };
 
+  // showList = (newListState) => {
+  //   const setNewState = newListState;
+
+  //   this.setState({
+  //     listShown: setNewState,
+  //   })
+
+  //   // console.log(this.state.listShown);
+  // }
+
+
+  // hideList = (closeList) => {
+
+  //  const resetState  = closeList;
+
+  //   this.setState({
+  //     listShown: resetState,
+  //   })
+
+  //   console.log(this.listShown);
+
+  // }
+
   render() {
     return (
       <div className="App">
         <header>
           {/* <div className=""> */}
+          {/* <Nav listFunc={this.showList} /> */}
           <Nav />
           <div className="flex-container wrapper">
             <section className="header-text">
@@ -106,15 +135,23 @@ class App extends React.Component {
                 <span className="sunday">Sunday</span>
                 <span className="homework">Homework</span>
               </h1>
-              <p className="tagline">created on a lazy sunday morning, with coffee in hand</p>
+              <p className="tagline">
+                created on a lazy sunday morning, with coffee in hand
+              </p>
             </section>
             <section className="wishlist">
-              <h2>Wishlist</h2>
+              <div className="wishlist-header">
+                {/* <button
+                // onClick={() => this.listFunc(this.showList)}
+                >
+                  <FontAwesomeIcon icon={faTimes} />
+                </button> */}
+                {/* <h2>Wishlist</h2> */}
+              </div>
 
               <ul>
                 {this.state.wishlist.map((listItem) => {
                   return (
-                  
                     <Wishlist
                       name={listItem.item.title}
                       imageSrc={listItem.item.src}
@@ -123,29 +160,25 @@ class App extends React.Component {
                         this.removeItem(listItem.key);
                       }}
                       key={listItem.key}
+                      trash={faTrash}
                     />
-
                   );
                 })}
               </ul>
             </section>
-          
           </div>
         </header>
 
-        {/* main content - items */}
         <div className="items wrapper">
           <h2>Meet the Doodles</h2>
-          <p>
-            digital wallpapers drawn by hand + shot on 35mm film
-          </p>
+          <p>digital wallpapers drawn by hand + shot on 35mm film</p>
 
           <ul>
             {this.state.wallpapers.map((wallpaper) => {
               return (
                 <li key={wallpaper.key}>
                   <div className="item">
-                    {/* TODO get images to load */}
+                
                     <img src={wallpaper.item.src} alt={wallpaper.item.alt} />
 
                     <p>{wallpaper.item.title}</p>
@@ -164,7 +197,6 @@ class App extends React.Component {
           </ul>
         </div>
 
-        {/* import of footer */}
         <Footer />
       </div>
     );

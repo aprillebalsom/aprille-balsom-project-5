@@ -57,7 +57,7 @@ html {
 }
 
 body {
-  background-color: #dddddd;
+  background-color: #ddd;
   color: #303030;
 
   text-transform: lowercase;
@@ -144,7 +144,8 @@ nav a {
 
 nav a:hover,
 nav a:focus {
-  border-bottom: 1px solid #303030;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #30303090;
 }
 
 .nav-icons {
@@ -154,6 +155,7 @@ nav a:focus {
 }
 
 .nav-icons a,
+.wishlist-flex button,
 .icons a {
   opacity: .85;
   padding: 10px;
@@ -162,6 +164,8 @@ nav a:focus {
 
 .nav-icons a:hover, 
 .nav-icons a:focus,
+.wishlist-flex button:hover, 
+.wishlist-flex button:focus,
 .icons a:hover,
 .icons a:focus {
   opacity: .7;
@@ -170,7 +174,7 @@ nav a:focus {
 
 /* HEADER STYLES */
 header {
-  background-image: url(./assets/background-image.png);
+  background-image: url(/assets/background-image.png);
   background-size: cover;
 
   min-height: 50vh; 
@@ -202,13 +206,64 @@ header {
 
 /* WISHLIST STYLES */
 .wishlist {
-  background-image: url(./assets/loose-leaf.png);
+  background-image: url(/assets/loose-leaf.png);
   background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 10px;
-  padding: 30px 0 60px 100px;
-  width: 40%;
+  background-repeat: no-repeat; 
+
+  /* border-radius: 10px 0 0 10px; */
+  width: 45%;
   height: 500px;
+  /* height: 100%; */
+
+  /* position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  overflow-y: scroll; */
+  padding: 15px 30px 60px; 
+}
+
+.wishlist-header {
+  display: flex;
+}
+
+.wishlist-header h2 {
+  font-size: 4.5rem;
+  padding-top: 50px;
+  width: calc(75% - 20px);
+}
+
+.wishlist-header button {
+  background: none;
+
+  font-size: 2.8rem;
+
+  width: calc(25% - 20px);
+  margin: 0;
+  padding: 0 50px 50px 0;
+  
+}
+
+.wishlist-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wishlist-flex img {
+  width: 30%;
+}
+
+
+.wishlist-flex p {
+  width: 50%;
+}
+
+.wishlist-flex button {
+  background: none;
+  color: #303030;
+
+  font-size: 2.4rem;
 }
 
 
