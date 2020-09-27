@@ -4,32 +4,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 class Nav extends React.Component {
-  // constructor() {
-  //   super();
+  constructor() {
+    super();
 
-  //   this.state = {
-  //     listShown: false,
-  //   };
-  // }
+    this.state = {
+      show: false,
+    };
+  }
 
-  // showList = () => {
-  //   let tosetListState = this.listShown;
+  toggleWishlist = () => {
+    this.setState({
+      show: !this.state.show,
+    }, 
+    () => {
+        this.transferState(this.state.show);
+    });
+  };
 
-  //   tosetListState = true;
-
-  //   this.setState({
-  //     listShown: tosetListState,
-  //   }, () => {
-  //     this.sendToParent(this.state.listShown);
-  //   })
-
-  //   console.log(this.state.listShown);
-  // }
-
-  // sendToParent = (stateofList) => {
-  //   this.props.listFunc(stateofList);
-  // }
-  
+  transferState = (stateOfList) => {
+   
+    this.props.toggleList(stateOfList);
+  };
 
   render() {
     return (
@@ -38,26 +33,31 @@ class Nav extends React.Component {
           <nav>
             <ul>
               <li>
-                <a href="#">Home</a>
+                <a href="#home">Home</a>
               </li>
               <li>
-                <a href="#">Shop</a>
+                <a href="#shop">Shop</a>
               </li>
               <li>
-                <a href="#">About</a>
+                <a href="#about">About</a>
               </li>
               <li>
-                <a href="#">Blog</a>
+                <a href="#blog">Blog</a>
               </li>
               <li>
-                <a href="#">Contact</a>
+                <a href="#contact">Contact</a>
               </li>
             </ul>
           </nav>
 
           <ul className="nav-icons">
             <li>
-              <button onClick={this.showList}>
+              {/* TODO add sr-only or aria hidden classes */}
+              <button
+                onClick={() => {
+                  this.toggleWishlist();
+                }}
+              >
                 <FontAwesomeIcon icon="star" />
               </button>
             </li>

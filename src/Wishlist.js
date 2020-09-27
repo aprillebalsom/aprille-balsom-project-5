@@ -2,7 +2,6 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Wishlist extends React.Component {
-
   render(){
     return (
       <li className="wishlist-flex" key={this.props.key}>
@@ -15,6 +14,7 @@ class Wishlist extends React.Component {
         </button>
       </li>
     );
+
   }
 }
 
