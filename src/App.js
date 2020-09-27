@@ -95,7 +95,7 @@ class App extends React.Component {
                 <span className="sunday">Sunday</span>
                 <span className="homework">Homework</span>
               </h1>
-              <p>created on a lazy sunday morning, with coffee in hand</p>
+              <p className="tagline">created on a lazy sunday morning, with coffee in hand</p>
             </section>
             <section className="wishlist">
               {/* <h2>Wishlist</h2> */}
