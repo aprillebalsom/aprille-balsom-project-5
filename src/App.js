@@ -127,8 +127,7 @@ class App extends React.Component {
         <div className="items wrapper">
           <h2>Meet the Doodles</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
-            molestias.
+            each wallpaper is shot on 35mm film and | or drawn by hand
           </p>
 
           <ul>

@@ -97,6 +97,11 @@ button {
   cursor: pointer;
 }
 
+button:hover,
+button:focus {
+  background-color: #fffcf585;
+}
+
 .wrapper {
   max-width: 1080;
   width: 85%;
@@ -132,6 +137,11 @@ nav a {
   text-transform: uppercase;
 
   padding: 20px;
+}
+
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
 }
 
 
