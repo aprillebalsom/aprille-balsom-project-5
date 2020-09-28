@@ -11,6 +11,7 @@ import "./App.css";
 import Nav from "./components/Nav.js";
 import Header from './components/Header.js';
 import Wishlist from './Wishlist.js';
+import Item from './components/Item.js';
 import Footer from './components/Footer.js';
 
 library.add(fab, faShoppingCart, faStar, faCodeBranch, faTrash, faTimes);
@@ -24,7 +25,6 @@ class App extends React.Component {
       wallpapers: [],
       wishlist: [],
       show: false,
-      showFave: false,
     }
   }
 
@@ -74,11 +74,13 @@ class App extends React.Component {
 
     dbRef.push(wishlistItem);
     // TODO add if statement, maybe have to use filter?!
+
+    // this.toggleSticker();
   };
 
   // create a function to remove items from the wishlist + firebase when the user clicks the "garbage can" button
   removeItem = (itemToBeRemoved) => {
-    console.log(itemToBeRemoved);
+    // console.log(itemToBeRemoved);
 
     const dbRef = firebase.database().ref("wishlistItems");
     dbRef.child(itemToBeRemoved).remove();
@@ -93,7 +95,6 @@ class App extends React.Component {
     console.log(this.state.show);
   };
 
-
   render() {
     return (
       <div className="App">
@@ -101,31 +102,24 @@ class App extends React.Component {
         <Nav toggleList={this.wishlistToggle} />
        
         <header id="home">
-        
           <div className="flex-container wrapper">
 
            <Header />
 
             <ToggleDisplay show={this.state.show}>
-
               <section className="wishlist">
 
                 <div className="wishlist-header">
-
                   <button onClick={() => this.wishlistToggle()}>
                     <p className="sr-only">Close the wishlist by clicking here</p>
                     <FontAwesomeIcon icon='times' />
                   </button>
-
                   <h2>Wishlist</h2>
-
                 </div>
 
                 <ul>
-
                   {this.state.wishlist.map((listItem) => {
                     return (
-
                       <Wishlist
                         name={listItem.item.title}
                         imageSrc={listItem.item.src}
@@ -136,14 +130,12 @@ class App extends React.Component {
                         key={listItem.key}
                         trash={faTrash}
                       />
-
                     );
                   })}
                 </ul>
 
               </section>
             </ToggleDisplay>
-
           </div>
         </header>
 
@@ -155,35 +147,16 @@ class App extends React.Component {
             <ul>
               {this.state.wallpapers.map((wallpaper) => {
                 return (
-                  <li key={wallpaper.key}>
-                    <div className="item">
-                      <div className="item-img">
-
-                        <img
-                          src={wallpaper.item.src}
-                          alt={wallpaper.item.alt}
-                        />
-{/* 
-                        <ToggleDisplay show={this.state.showFave.state} >
-                          <p className="star-sticker">
-                            <FontAwesomeIcon icon="star" />
-                          </p>
-                        </ToggleDisplay> */}
-
-                      </div>
-                      <p>{wallpaper.item.title}</p>
-                      <p>$5.00</p>
-                    </div>
-
-                    <button
-                      onClick={() => {
-                        this.addItem(wallpaper, wallpaper.key)}} 
-                    >
-                      Add to wishlist
-                    </button>
-                  </li>
-                );
-              })}
+									<Item
+										key={wallpaper.key}
+										src={wallpaper.item.src}
+										alt={wallpaper.item.alt}
+										title={wallpaper.item.title}
+                    addItem={wallpaper}
+                    addToWishlist={this.addItem}
+									/>
+								);}
+              )}
             </ul>
           </div>
         </div>
