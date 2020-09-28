@@ -1,26 +1,19 @@
-import React from 'react'
-import firebase from "./firebase";
-
-import ToggleDisplay from "react-toggle-display";
+import React from 'react';
+import firebase from './firebase';
+import ToggleDisplay from 'react-toggle-display';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import {
-  faShoppingCart,
-  faStar,
-  faCodeBranch,
-  faTrash,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
+import {faShoppingCart,faStar,faCodeBranch,faTrash,faTimes} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import "./App.css";
 
-import Nav from "./Nav.js";
-// import flora from './assets/flora.png';
+//IMPORTING OF OTHER COMPONENTS
+import Nav from "./components/Nav.js";
+import Header from './components/Header.js';
 import Wishlist from './Wishlist.js';
-import Footer from './Footer.js';
+import Footer from './components/Footer.js';
 
-library.add(fab, faShoppingCart, faStar, faCodeBranch);
+library.add(fab, faShoppingCart, faStar, faCodeBranch, faTrash, faTimes);
 
 
 class App extends React.Component {
@@ -31,8 +24,11 @@ class App extends React.Component {
       wallpapers: [],
       wishlist: [],
       show: false,
-      showFave: false,
-    };
+      showFave: {
+        state: false,
+        key:'',
+      },
+    }
   }
 
   componentDidMount() {
@@ -76,12 +72,12 @@ class App extends React.Component {
   }
 
   //create a function that adds an item to the wishlist, when a user clicks the "add to wishlist" button
-  addItem = (wishlistItem) => {
+  addItem = (wishlistItem, itemKey) => {
     const dbRef = firebase.database().ref("wishlistItems");
 
     dbRef.push(wishlistItem);
 
-    this.toggleSticker(wishlistItem);
+    this.toggleSticker(itemKey);
 
     // TODO add if statement, maybe have to use filter?!
   };
@@ -104,10 +100,13 @@ class App extends React.Component {
     console.log(this.state.show);
   };
 
-  toggleSticker = () => {
+  toggleSticker = (selectedItem) => {
+
     this.setState({
-      showFave: !this.state.showFave,
-    });
+      showFave: {
+        key: selectedItem,
+        state: !this.state.showFave.state,
+      }});
 
     console.log(this.state.showFave);
   };
@@ -115,38 +114,35 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* <Nav showWishlist = {this.toggleList} /> */}
+        
         <Nav toggleList={this.wishlistToggle} />
-        {/* <button onClick={() => {this.toggleWishlist()}}>
-          <FontAwesomeIcon icon="star" />
-        </button> */}
+       
         <header id="home">
-          {/* <div className=""> */}
-          {/* <Nav listFunc={this.showList} /> */}
-
+        
           <div className="flex-container wrapper">
-            <section className="header-text">
-              <h1>
-                <span className="sunday">Sunday</span>
-                <span className="homework">Homework</span>
-              </h1>
-              <p className="tagline">
-                created on a lazy sunday morning, with coffee in hand
-              </p>
-            </section>
+
+           <Header />
+
             <ToggleDisplay show={this.state.show}>
+
               <section className="wishlist">
+
                 <div className="wishlist-header">
+
                   <button onClick={() => this.wishlistToggle()}>
-                    <FontAwesomeIcon icon={faTimes} />
+                    <p className="sr-only">Close the wishlist by clicking here</p>
+                    <FontAwesomeIcon icon='times' />
                   </button>
 
                   <h2>Wishlist</h2>
+
                 </div>
 
                 <ul>
+
                   {this.state.wishlist.map((listItem) => {
                     return (
+
                       <Wishlist
                         name={listItem.item.title}
                         imageSrc={listItem.item.src}
@@ -157,11 +153,14 @@ class App extends React.Component {
                         key={listItem.key}
                         trash={faTrash}
                       />
+
                     );
                   })}
                 </ul>
+
               </section>
             </ToggleDisplay>
+
           </div>
         </header>
 
@@ -176,16 +175,18 @@ class App extends React.Component {
                   <li key={wallpaper.key}>
                     <div className="item">
                       <div className="item-img">
+
                         <img
                           src={wallpaper.item.src}
                           alt={wallpaper.item.alt}
                         />
 
-                        <ToggleDisplay show={this.state.showFave}>
-                        <p className="star-sticker">
-                          <FontAwesomeIcon icon="star" />
-                        </p>
+                        <ToggleDisplay show={this.state.showFave.state} >
+                          <p className="star-sticker">
+                            <FontAwesomeIcon icon="star" />
+                          </p>
                         </ToggleDisplay>
+
                       </div>
                       <p>{wallpaper.item.title}</p>
                       <p>$5.00</p>
@@ -193,8 +194,7 @@ class App extends React.Component {
 
                     <button
                       onClick={() => {
-                        this.addItem(wallpaper);
-                      }}
+                        this.addItem(wallpaper, wallpaper.key)}}
                     >
                       Add to wishlist
                     </button>

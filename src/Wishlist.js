@@ -10,6 +10,7 @@ class Wishlist extends React.Component {
 
         <p>{this.props.name}</p>
         <button onClick={this.props.removeItem}>
+          <p className="sr-only">Click here to remove this item from your wishlist.</p>
           <FontAwesomeIcon icon={this.props.trash} />
         </button>
       </li>
