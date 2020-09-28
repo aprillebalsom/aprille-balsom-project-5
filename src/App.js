@@ -24,10 +24,7 @@ class App extends React.Component {
       wallpapers: [],
       wishlist: [],
       show: false,
-      showFave: {
-        state: false,
-        key:'',
-      },
+      showFave: false,
     }
   }
 
@@ -72,13 +69,10 @@ class App extends React.Component {
   }
 
   //create a function that adds an item to the wishlist, when a user clicks the "add to wishlist" button
-  addItem = (wishlistItem, itemKey) => {
+  addItem = (wishlistItem) => {
     const dbRef = firebase.database().ref("wishlistItems");
 
     dbRef.push(wishlistItem);
-
-    this.toggleSticker(itemKey);
-
     // TODO add if statement, maybe have to use filter?!
   };
 
@@ -89,7 +83,6 @@ class App extends React.Component {
     const dbRef = firebase.database().ref("wishlistItems");
     dbRef.child(itemToBeRemoved).remove();
 
-    this.toggleSticker(itemToBeRemoved);
   };
 
   wishlistToggle = () => {
@@ -100,16 +93,6 @@ class App extends React.Component {
     console.log(this.state.show);
   };
 
-  toggleSticker = (selectedItem) => {
-
-    this.setState({
-      showFave: {
-        key: selectedItem,
-        state: !this.state.showFave.state,
-      }});
-
-    console.log(this.state.showFave);
-  };
 
   render() {
     return (
@@ -180,12 +163,12 @@ class App extends React.Component {
                           src={wallpaper.item.src}
                           alt={wallpaper.item.alt}
                         />
-
+{/* 
                         <ToggleDisplay show={this.state.showFave.state} >
                           <p className="star-sticker">
                             <FontAwesomeIcon icon="star" />
                           </p>
-                        </ToggleDisplay>
+                        </ToggleDisplay> */}
 
                       </div>
                       <p>{wallpaper.item.title}</p>
@@ -194,7 +177,7 @@ class App extends React.Component {
 
                     <button
                       onClick={() => {
-                        this.addItem(wallpaper, wallpaper.key)}}
+                        this.addItem(wallpaper, wallpaper.key)}} 
                     >
                       Add to wishlist
                     </button>

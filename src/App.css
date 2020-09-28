@@ -47,7 +47,7 @@ html {
 }
 
 body {
-  background-image: url(/assets/background-image.png);
+  background-image: url('https://drive.google.com/uc?export=view&id=1rTADLiO17cPnC9r2-h6awIfYiw4RrMbu');
   /* TODO change to cover when get to media queries */
   background-size: contain;
   background-repeat: no-repeat;
@@ -200,7 +200,7 @@ header {
 
 /* WISHLIST STYLES */
 .wishlist {
-  background-image: url(/assets/loose-leaf.png);
+  background-image: url('https://drive.google.com/uc?export=view&id=1NkeemhFav0YXOoyG8uN4341pm5VIhZg6');
   background-size: cover;
   background-repeat: no-repeat; 
 
