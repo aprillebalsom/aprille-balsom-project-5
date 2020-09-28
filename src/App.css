@@ -48,7 +48,6 @@ html {
 
 body {
   background-image: url('https://drive.google.com/uc?export=view&id=1rTADLiO17cPnC9r2-h6awIfYiw4RrMbu');
-  /* TODO change to cover when get to media queries */
   background-size: contain;
   background-repeat: no-repeat;
   
@@ -61,12 +60,14 @@ body {
 h1 {
   font-size: 5rem;
   font-family: goudy-old-style, serif;
+
   padding: 150px 0 5px 0;
 }
 
 h2 {
   font-size: 4rem;
   font-weight: 400;
+
   padding: 20px 0;
 }
 
@@ -137,8 +138,9 @@ nav a {
 
 nav a:hover,
 nav a:focus {
-  padding-bottom: 5px;
   border-bottom: 1px solid #30303090;
+
+  padding-bottom: 5px;
 }
 
 .nav-icons{
@@ -146,15 +148,18 @@ nav a:focus {
 }
 
 .nav-icons button {
-  font-size: 2rem;
   background: none;
+
+  font-size: 2rem;
 }
 
 .nav-icons button,
 .wishlist-flex button,
 .icons a {
   opacity: .85;
+
   padding: 10px;
+
   transition: all .4s;
 }
 
@@ -176,6 +181,7 @@ header {
 
 .flex-container {
   font-family: goudy-old-style, serif;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -214,8 +220,6 @@ header {
   right: 0;
   z-index: 20;
   overflow-y: scroll; 
-  
-
 } 
 
 .wishlist-header {
@@ -241,7 +245,6 @@ header {
 }
 
 .wishlist-flex {
-
   padding: 20px 20px 20px 110px;
 
   display: flex;
@@ -268,6 +271,7 @@ header {
 /* ITEM STYLES */
 .items {
   background-color: #ddd;
+
   text-align: center;
   font-family: goudy-old-style, serif;
  
@@ -290,13 +294,15 @@ header {
 }
 
 .items p {
-  padding-top: 5px;
   font-style: italic;
+
+  padding-top: 5px;
 }
 
 .items ul {
   padding: 80px 0;
   margin: auto;
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -330,7 +336,95 @@ footer p {
 .icons {
   font-size: 2rem;
   text-align: center;
+
   padding: 10px;
 }
 
+
+/* MEDIA QUERIES */
+
+/* portrait tablet + desktop */
+@media(max-width: 940px) {
+
+  /* TODO don't love, maybe update? */
+  body {
+    background-size: cover;
+  }
+
+  .wishlist {
+    width: 70%;
+  }
+
+}
+
+/* landscape phone + protrait tablet */
+@media(max-width: 768px) {
+
+  .flex-header {
+    padding-top: 20px;
+    flex-direction: column;
+  }
+
+  .wishlist {
+    width: 100%;
+  }
+
+  .items ul {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+ 
+  .footer-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-text {
+    padding-top: 20px;
+    order: 1;
+  }
+
+}
+
+/* landscape phones + down */
+@media(max-width: 480px) {
+
+  .wrapper {
+    width: 95%;
+  }
+
+  .flex-header {
+    flex-direction: row;
+  }
+
+  /* TODO toggle nav ul */
+  nav ul {
+    flex-direction: column;
+  }
+
+  .wishlist {
+    padding: 15px 15px 60px;
+  }
+
+  .wishlist-flex {
+    padding: 20px 0;
+  }
+
+  .wishlist-flex img {
+    padding: 5px;
+  }
+
+  .items ul {
+    /* TODO can you condense?! */
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 60px;
+  }
+
+  .item {
+    margin: 0 20px;
+  }
+
+}
 

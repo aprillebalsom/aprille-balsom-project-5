@@ -29,6 +29,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+
     //get wallpaper information from database
     const dbRef = firebase.database().ref();
 
@@ -71,28 +72,22 @@ class App extends React.Component {
   //create a function that adds an item to the wishlist, when a user clicks the "add to wishlist" button
   addItem = (wishlistItem) => {
     const dbRef = firebase.database().ref("wishlistItems");
-
     dbRef.push(wishlistItem);
-    // TODO add if statement, maybe have to use filter?!
-
-    // this.toggleSticker();
   };
 
   // create a function to remove items from the wishlist + firebase when the user clicks the "garbage can" button
   removeItem = (itemToBeRemoved) => {
-    // console.log(itemToBeRemoved);
-
     const dbRef = firebase.database().ref("wishlistItems");
     dbRef.child(itemToBeRemoved).remove();
 
+    // let stickerState = false;
+    // updateStickerState(stickerState);
   };
 
   wishlistToggle = () => {
     this.setState({
       show: !this.state.show,
     });
-
-    console.log(this.state.show);
   };
 
   render() {
@@ -121,13 +116,14 @@ class App extends React.Component {
                   {this.state.wishlist.map((listItem) => {
                     return (
                       <Wishlist
+                        key = {listItem.key}
                         name={listItem.item.title}
-                        imageSrc={listItem.item.src}
-                        imageAlt={listItem.item.alt}
+                        src={listItem.item.src}
+                        alt={listItem.item.alt}
                         removeItem={() => {
                           this.removeItem(listItem.key);
                         }}
-                        key={listItem.key}
+                        itemKey={listItem.key}
                         trash={faTrash}
                       />
                     );
@@ -152,12 +148,15 @@ class App extends React.Component {
 										src={wallpaper.item.src}
 										alt={wallpaper.item.alt}
 										title={wallpaper.item.title}
-                    addItem={wallpaper}
-                    addToWishlist={this.addItem}
+										addItem={wallpaper}
+										addToWishlist={this.addItem}
+                    itemKey={wallpaper.key}
+                    // stickerState={this.}
 									/>
-								);}
-              )}
+								);
+              })}
             </ul>
+
           </div>
         </div>
 

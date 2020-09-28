@@ -4,15 +4,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class Wishlist extends React.Component {
   render(){
     return (
-      <li className="wishlist-flex" key={this.props.key}>
+      <li className="wishlist-flex" key={this.props.itemKey}>
         
-        <img src={this.props.imageSrc} alt={this.props.imageAlt} />
+        <img src={this.props.src} alt={this.props.alt} />
 
         <p>{this.props.name}</p>
+
         <button onClick={this.props.removeItem}>
           <p className="sr-only">Click here to remove this item from your wishlist.</p>
           <FontAwesomeIcon icon={this.props.trash} />
         </button>
+        
       </li>
     );
 
