@@ -10,6 +10,7 @@ class Wishlist extends React.Component {
 
         <p>{this.props.name}</p>
 
+        {/* on click, update the state of the showFave (which will remove sticker) in item and remove the item from the wishlist */}
         <button onClick={this.props.removeItem}>
           <p className="sr-only">Click here to remove this item from your wishlist.</p>
           <FontAwesomeIcon icon={this.props.trash} />

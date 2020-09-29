@@ -39,7 +39,7 @@ button {
   border: none;
 }
 
-
+/* TODO update fontsize with clamp */
 /* GLOBAL STYLES */
 html {
   font-size: 62.5%;
@@ -389,6 +389,10 @@ footer p {
 
 /* landscape phones + down */
 @media(max-width: 480px) {
+
+  header {
+    min-height: 50vh;
+  }
 
   .wrapper {
     width: 95%;

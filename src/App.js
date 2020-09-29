@@ -26,6 +26,7 @@ class App extends React.Component {
       wishlist: [],
       show: false,
     }
+
   }
 
   componentDidMount() {
@@ -80,8 +81,8 @@ class App extends React.Component {
     const dbRef = firebase.database().ref("wishlistItems");
     dbRef.child(itemToBeRemoved).remove();
 
-    // let stickerState = false;
-    // updateStickerState(stickerState);
+    //call a function that changes the state within the item component
+    // changeStickerState();
   };
 
   wishlistToggle = () => {
@@ -89,7 +90,6 @@ class App extends React.Component {
       show: !this.state.show,
     });
   };
-
   render() {
     return (
       <div className="App">
@@ -149,9 +149,9 @@ class App extends React.Component {
 										alt={wallpaper.item.alt}
 										title={wallpaper.item.title}
 										addItem={wallpaper}
+										itemKey={wallpaper.key}
 										addToWishlist={this.addItem}
-                    itemKey={wallpaper.key}
-                    // stickerState={this.}
+										// stickerState={() => this.changeStickerState()}
 									/>
 								);
               })}
