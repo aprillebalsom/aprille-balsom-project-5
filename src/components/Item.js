@@ -7,7 +7,7 @@ class Item extends React.Component {
 		super();
 
 		this.state = {
-			showFave: false,
+			showSticker: false,
 		};
 	}
 
@@ -15,23 +15,24 @@ class Item extends React.Component {
 	//if yes, alert the user
 	//if no, call function that changes the state
 	toggleSticker = () => {
-		this.state.showFave === true
-			? alert(
-					`looks like you really like that one, it's already in your wishlist!`
-			    )
-			: this.updateState();
+		this.state.showSticker === true
+			? this.callAlertFunc()
+			: this.updateStickerState();
+	};
+
+
+	callAlertFunc = () => {
+		this.props.showAlert();
 	};
 
 	// change the state of the sticker and call then next function
-	updateState = () => {
-		this.setState(
-			{
-				showFave: !this.state.showFave,
+	updateStickerState = () => {
+		this.setState({
+				showSticker: !this.state.showSticker,
 			},
 			() => {
 				this.callAddItemFunc();
-			}
-		);
+			});
 	};
 
 	// pass information back to parent
@@ -63,7 +64,7 @@ class Item extends React.Component {
 					<div className='item-img'>
 						<img src={this.props.src} alt={this.props.alt} />
 
-						<ToggleDisplay show={this.state.showFave}>
+						<ToggleDisplay show={this.state.showSticker}>
 							<p className='star-sticker'>
 								<FontAwesomeIcon icon='star' />
 							</p>

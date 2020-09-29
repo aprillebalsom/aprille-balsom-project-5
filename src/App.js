@@ -25,6 +25,7 @@ class App extends React.Component {
       wallpapers: [],
       wishlist: [],
       show: false,
+      showAlert: false,
     }
 
   }
@@ -90,59 +91,80 @@ class App extends React.Component {
       show: !this.state.show,
     });
   };
+
+  displayAlert = () => {
+    this.setState({
+      showAlert: !this.state.showAlert,
+    });
+  }
+
+
   render() {
     return (
-      <div className="App">
-        
-        <Nav toggleList={this.wishlistToggle} />
-       
-        <header id="home">
-          <div className="flex-container wrapper">
+			<div className='App'>
+				<Nav toggleList={this.wishlistToggle} />
 
-           <Header />
+				<header id='home'>
+					<div className='flex-container wrapper'>
+						<Header />
 
-            <ToggleDisplay show={this.state.show}>
-              <section className="wishlist">
+						<ToggleDisplay show={this.state.show}>
+							<section className='wishlist'>
+								<div className='wishlist-header'>
+									<button onClick={() => this.wishlistToggle()}>
+										<p className='sr-only'>
+											Close the wishlist by clicking here
+										</p>
+										<FontAwesomeIcon icon='times' />
+									</button>
+									<h2>Wishlist</h2>
+								</div>
 
-                <div className="wishlist-header">
-                  <button onClick={() => this.wishlistToggle()}>
-                    <p className="sr-only">Close the wishlist by clicking here</p>
-                    <FontAwesomeIcon icon='times' />
-                  </button>
-                  <h2>Wishlist</h2>
-                </div>
+								<ul>
+									{this.state.wishlist.map((listItem) => {
+										return (
+											<Wishlist
+												key={listItem.key}
+												name={listItem.item.title}
+												src={listItem.item.src}
+												alt={listItem.item.alt}
+												removeItem={() => {
+													this.removeItem(listItem.key);
+												}}
+												itemKey={listItem.key}
+												trash={faTrash}
+											/>
+										);
+									})}
+								</ul>
+							</section>
+						</ToggleDisplay>
+					</div>
+				</header>
 
-                <ul>
-                  {this.state.wishlist.map((listItem) => {
-                    return (
-                      <Wishlist
-                        key = {listItem.key}
-                        name={listItem.item.title}
-                        src={listItem.item.src}
-                        alt={listItem.item.alt}
-                        removeItem={() => {
-                          this.removeItem(listItem.key);
-                        }}
-                        itemKey={listItem.key}
-                        trash={faTrash}
-                      />
-                    );
-                  })}
-                </ul>
+				<div className='items' id='shop'>
+					<div className='wrapper'>
+						<ToggleDisplay show={this.state.showAlert}>
+							<div className='modal'>
+								<div className='modal-content'>
+									<button className='close-modal' onClick={this.displayAlert}>
+										<FontAwesomeIcon icon='times' />
+									</button>
+									<h3>wow!</h3>
+									<p>
+										looks like you <span>really</span> like that one, it's
+										already in your wishlist!
+									</p>
+								</div>
+							</div>
+						</ToggleDisplay>
 
-              </section>
-            </ToggleDisplay>
-          </div>
-        </header>
+						<h2>Meet the Doodles</h2>
+						<p>digital wallpapers drawn by hand + shot on 35mm film</p>
 
-        <div className="items" id="shop">
-          <div className="wrapper">
-            <h2>Meet the Doodles</h2>
-            <p>digital wallpapers drawn by hand + shot on 35mm film</p>
-
-            <ul>
-              {this.state.wallpapers.map((wallpaper) => {
-                return (
+						<ul>
+							{this.state.wallpapers.map((wallpaper) => {
+								return (
 									<Item
 										key={wallpaper.key}
 										src={wallpaper.item.src}
@@ -151,18 +173,18 @@ class App extends React.Component {
 										addItem={wallpaper}
 										itemKey={wallpaper.key}
 										addToWishlist={this.addItem}
+										showAlert={this.displayAlert}
 										// stickerState={() => this.changeStickerState()}
 									/>
 								);
-              })}
-            </ul>
+							})}
+						</ul>
+					</div>
+				</div>
 
-          </div>
-        </div>
-
-        <Footer />
-      </div>
-    );
+				<Footer />
+			</div>
+		);
   }
 }
 
