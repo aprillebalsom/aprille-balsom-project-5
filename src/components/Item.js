@@ -1,4 +1,4 @@
-import React, { useState, forwardRef, useImperativeHandle } from "react";
+import React from "react";
 import ToggleDisplay from 'react-toggle-display';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -18,12 +18,11 @@ class Item extends React.Component {
 		this.state.showFave === true
 			? alert(
 					`looks like you really like that one, it's already in your wishlist!`
-			  )
+			    )
 			: this.updateState();
 	};
 
 	// change the state of the sticker and call then next function
-
 	updateState = () => {
 		this.setState(
 			{
