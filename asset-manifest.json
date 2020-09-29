@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/aprille-balsom-project-5/static/css/main.be4d3217.chunk.css",
+    "main.js": "/aprille-balsom-project-5/static/js/main.d850ce24.chunk.js",
+    "main.js.map": "/aprille-balsom-project-5/static/js/main.d850ce24.chunk.js.map",
+    "runtime-main.js": "/aprille-balsom-project-5/static/js/runtime-main.c0f96701.js",
+    "runtime-main.js.map": "/aprille-balsom-project-5/static/js/runtime-main.c0f96701.js.map",
+    "static/js/2.b8b4862e.chunk.js": "/aprille-balsom-project-5/static/js/2.b8b4862e.chunk.js",
+    "static/js/2.b8b4862e.chunk.js.map": "/aprille-balsom-project-5/static/js/2.b8b4862e.chunk.js.map",
+    "index.html": "/aprille-balsom-project-5/index.html",
+    "precache-manifest.7962930982d2f03b10a35cf68dd2171c.js": "/aprille-balsom-project-5/precache-manifest.7962930982d2f03b10a35cf68dd2171c.js",
+    "service-worker.js": "/aprille-balsom-project-5/service-worker.js",
+    "static/css/main.be4d3217.chunk.css.map": "/aprille-balsom-project-5/static/css/main.be4d3217.chunk.css.map",
+    "static/js/2.b8b4862e.chunk.js.LICENSE.txt": "/aprille-balsom-project-5/static/js/2.b8b4862e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c0f96701.js",
+    "static/js/2.b8b4862e.chunk.js",
+    "static/css/main.be4d3217.chunk.css",
+    "static/js/main.d850ce24.chunk.js"
+  ]
+}
