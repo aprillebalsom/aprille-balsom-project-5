@@ -164,6 +164,10 @@ class App extends React.Component {
 
 						<ul>
 							{this.state.wallpapers.map((wallpaper) => {
+								const isStickered = this.state.wishlist.filter((item) => {
+									return item.item.title === wallpaper.item.title
+								})
+								console.log(isStickered);
 								return (
 									<Item
 										key={wallpaper.key}
@@ -174,7 +178,7 @@ class App extends React.Component {
 										itemKey={wallpaper.key}
 										addToWishlist={this.addItem}
 										showAlert={this.displayAlert}
-										// stickerState={() => this.changeStickerState()}
+										showSticker={isStickered.length > 0}
 									/>
 								);
 							})}
