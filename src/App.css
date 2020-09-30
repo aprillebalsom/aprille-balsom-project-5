@@ -71,36 +71,33 @@ button{
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: clamp(3rem, 10vw, 6rem);
 
   padding: 150px 0 5px 0;
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: clamp(2rem, 8vw, 5rem);
   
   padding: 20px 0;
 }
 
 h3 {
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 6vw, 4rem);
 }
 
 p {
-  font-size: 1.8rem;
   font-style: italic;
 }
 
-img {
-  width: 100%;
-  height: auto;
+p,
+button {
+  font-size: clamp(1.6rem, 3vw, 2rem);
 }
 
 button {
   background-color: #fffcf5;
   
-  font-size: 1.6rem;
-
   padding: 15px 25px;
   margin: 10px 0;
 
@@ -113,6 +110,11 @@ button:focus {
   background-color: #fffcf585;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .wrapper {
   max-width: 1080;
   width: 85%;
@@ -123,7 +125,8 @@ button:focus {
   background-color: #ddd;
   
   text-align: center;
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  /* TODO stopped here adding in clamp */
 
   border-radius: 4px;
   width: 225px;
