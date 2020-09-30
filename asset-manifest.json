@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/aprille-balsom-project-5/static/css/main.2f18cf3e.chunk.css",
-    "main.js": "/aprille-balsom-project-5/static/js/main.e54872a0.chunk.js",
-    "main.js.map": "/aprille-balsom-project-5/static/js/main.e54872a0.chunk.js.map",
+    "main.css": "/aprille-balsom-project-5/static/css/main.6079e392.chunk.css",
+    "main.js": "/aprille-balsom-project-5/static/js/main.92aec60c.chunk.js",
+    "main.js.map": "/aprille-balsom-project-5/static/js/main.92aec60c.chunk.js.map",
     "runtime-main.js": "/aprille-balsom-project-5/static/js/runtime-main.c0f96701.js",
     "runtime-main.js.map": "/aprille-balsom-project-5/static/js/runtime-main.c0f96701.js.map",
     "static/js/2.3c1cf369.chunk.js": "/aprille-balsom-project-5/static/js/2.3c1cf369.chunk.js",
     "static/js/2.3c1cf369.chunk.js.map": "/aprille-balsom-project-5/static/js/2.3c1cf369.chunk.js.map",
     "index.html": "/aprille-balsom-project-5/index.html",
-    "precache-manifest.e91b3178399a3262f9bf2d074ff981af.js": "/aprille-balsom-project-5/precache-manifest.e91b3178399a3262f9bf2d074ff981af.js",
+    "precache-manifest.643703f2e2a6d4af23aefbc2764e5e27.js": "/aprille-balsom-project-5/precache-manifest.643703f2e2a6d4af23aefbc2764e5e27.js",
     "service-worker.js": "/aprille-balsom-project-5/service-worker.js",
-    "static/css/main.2f18cf3e.chunk.css.map": "/aprille-balsom-project-5/static/css/main.2f18cf3e.chunk.css.map",
+    "static/css/main.6079e392.chunk.css.map": "/aprille-balsom-project-5/static/css/main.6079e392.chunk.css.map",
     "static/js/2.3c1cf369.chunk.js.LICENSE.txt": "/aprille-balsom-project-5/static/js/2.3c1cf369.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c0f96701.js",
     "static/js/2.3c1cf369.chunk.js",
-    "static/css/main.2f18cf3e.chunk.css",
-    "static/js/main.e54872a0.chunk.js"
+    "static/css/main.6079e392.chunk.css",
+    "static/js/main.92aec60c.chunk.js"
   ]
 }
