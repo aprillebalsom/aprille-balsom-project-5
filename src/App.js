@@ -46,7 +46,7 @@ class App extends React.Component {
 				});
 			}
 
-			//use new wallpaper data array to set the state
+			//use new array of wallpaper data to set the state
 			this.setState({
 				wallpapers: toSetState,
 			});
@@ -67,7 +67,7 @@ class App extends React.Component {
 				});
 			}
 
-			//use new wishlist data array to set the state
+			//use new array of wishlist data to set the state
 			this.setState({
 				wishlist: toSetState,
 			});
@@ -80,7 +80,7 @@ class App extends React.Component {
 		dbRef.push(itemToBeAdded);
 	};
 
-	// create a function to remove items from the wishlist + firebase when the user clicks the "garbage can" icon
+	// create a function that removes an item from the wishlist + firebase when the user clicks the "garbage can" icon
 	removeItem = (itemToBeRemoved) => {
 		const dbRef = firebase.database().ref('wishlistItems');
 		dbRef.child(itemToBeRemoved).remove();
@@ -95,7 +95,7 @@ class App extends React.Component {
 		});
 	};
 
-	//create a function that displays a modal when the user attempt to add a wallpaper to their wishlist twice 
+	//create a function that displays a modal when the user tries to add a wallpaper to their wishlist twice 
 	displayModal = () => {
 
 		//update the state of the modal being displayed
@@ -167,9 +167,9 @@ class App extends React.Component {
 						<ToggleDisplay show={this.state.showModal}>
 							<div className='modal'>
 								<div className='modal-content'>
-									<h3>wow!</h3>
+									<h3>Wow!</h3>
 									<p>
-										looks like you
+										Looks like you
 										<span>
 											<em> really </em>
 										</span>
@@ -194,8 +194,8 @@ class App extends React.Component {
 						<ul>
 							{/* map over wallpaper array and pass info into item component */}
 							{this.state.wallpapers.map((wallpaper) => {
-								// filter through wishlist array and compare to wallpaper arrary return the items that are in both arrays
-								//pass those items into the item component
+								//filter through wishlist array and compare to wallpaper arrary, return the items that are in both arrays
+								//pass the new array into the item component
 								const isStickered = this.state.wishlist.filter((item) => {
 									return item.item.title === wallpaper.item.title;
 								});

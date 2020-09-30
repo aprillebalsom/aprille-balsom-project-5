@@ -42,8 +42,8 @@ class Item extends React.Component {
 
 					</div>
 
-					<p>{this.props.title}</p>
-					<p>$5.00</p>
+					<h3>{this.props.title}</h3>
+					<h4>$5.00</h4>
 				</div>
 
 				{/* on click, call the checkWishlist function */}

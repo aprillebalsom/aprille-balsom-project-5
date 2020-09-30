@@ -17,6 +17,7 @@ img,
 h1, 
 h2, 
 h3, 
+h4,
 a, 
 p, 
 ul, 
@@ -54,6 +55,7 @@ html {
 h1, 
 h2,
 h3,
+h4,
 p,
 a,
 button{
@@ -81,6 +83,12 @@ h3 {
   font-size: clamp(1.8rem, 6vw, 4rem);
 }
 
+h4 {
+  font-size: clamp(1.8rem, 2vw, 2rem)
+}
+
+h3,
+h4,
 p {
   font-style: italic;
 }
@@ -381,6 +389,10 @@ header {
   right: 5%;
 }
 
+.item h3 {
+  font-size: clamp(1.8rem, 2vw, 2.4rem);
+}
+
 .items p {
   padding-top: 5px;
 }
@@ -394,6 +406,7 @@ header {
   grid-template-rows: 1fr 1fr 1fr;
   gap: 60px;
 }
+
 
 /* FOOTER STYLES ----------------------------------------------------- */
 footer {

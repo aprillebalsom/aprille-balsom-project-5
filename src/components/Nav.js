@@ -12,6 +12,7 @@ class Nav extends React.Component {
 	}
 
 	//create a function that changes the wishlist state
+	//this will open/close the wishlist when event is triggered
 	toggleWishlist = () => {
     	//set the state that toggles the wishlist
 		this.setState(
@@ -22,10 +23,10 @@ class Nav extends React.Component {
 			() => {
 				this.callToggleFunc(this.state.showWishlist);
 			}
-			);
+		);
   	};
 
-	//create a function that calls a function in the parent component and passes the  current wishlist state as an arugment to display/hide the wishlist
+	//create a function that calls a function in the parent component and passes the current wishlist state as an arugment to display/hide the wishlist
 	callToggleFunc = (stateOfwishList) => {
 		this.props.toggleList(stateOfwishList);
 	};

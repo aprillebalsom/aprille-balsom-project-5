@@ -9,7 +9,7 @@ const Header = () => {
             </h1>
 
             <p className='tagline'>
-                created on a lazy sunday morning, with coffee in hand
+                Created on a lazy Sunday morning, with coffee in hand
             </p>
         </section>
     )
