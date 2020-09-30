@@ -1,14 +1,14 @@
 import React from 'react';
 import firebase from './firebase';
 import ToggleDisplay from 'react-toggle-display';
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import {faShoppingCart,faStar,faCodeBranch,faTrash,faTimes} from "@fortawesome/free-solid-svg-icons";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import {faShoppingCart,faStar,faCodeBranch,faTrash,faTimes} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./App.css";
 
 //IMPORTING OF OTHER COMPONENTS
-import Nav from "./components/Nav.js";
+import Nav from './components/Nav.js';
 import Header from './components/Header.js';
 import Wishlist from './components/Wishlist.js';
 import Item from './components/Item.js';
@@ -40,7 +40,7 @@ class App extends React.Component {
     	//get wallpaper information from database
 		const dbRef = firebase.database().ref();
 
-		dbRef.on("value", (response) => {
+		dbRef.on('value', (response) => {
 			const toSetState = [];
 			const data = response.val();
 
@@ -60,9 +60,9 @@ class App extends React.Component {
 		});
 
 		//get wishlist information from database
-		const dbRefWishlist = firebase.database().ref("wishlistItems");
+		const dbRefWishlist = firebase.database().ref('wishlistItems');
 
-		dbRefWishlist.on("value", (response) => {
+		dbRefWishlist.on('value', (response) => {
 			const toSetState = [];
 			const data = response.val();
 
@@ -83,13 +83,13 @@ class App extends React.Component {
 
 	//create a function that adds an item to the wishlist + firebase when a user clicks the "add to wishlist" button
 	addItem = (itemToBeAdded) => {
-		const dbRef = firebase.database().ref("wishlistItems");
+		const dbRef = firebase.database().ref('wishlistItems');
 		dbRef.push(itemToBeAdded);
 	};
 
 	// create a function to remove items from the wishlist + firebase when the user clicks the "garbage can" icon
 	removeItem = (itemToBeRemoved) => {
-		const dbRef = firebase.database().ref("wishlistItems");
+		const dbRef = firebase.database().ref('wishlistItems');
 		dbRef.child(itemToBeRemoved).remove();
 	};
 

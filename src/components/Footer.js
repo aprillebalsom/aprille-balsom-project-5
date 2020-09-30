@@ -8,12 +8,12 @@ const Footer = () => {
         <div className='footer-text' id='about'>
 
           <p>
-            Created at <a href='https://junocollege.com/'>Juno College</a>
+            Created at <a target='_blank' href='https://junocollege.com/'>Juno College</a>
           </p>
 
           <p>
             Design + wallpapers by 
-            <a href='https://apesfilmdiary.com/' id='blog'> Aprille Balsom</a>
+            <a target='_blank' href='https://apesfilmdiary.com/' id='blog'> Aprille Balsom</a>
           </p>
 
         </div>
@@ -23,15 +23,15 @@ const Footer = () => {
           <p>join us on social</p>
 
           <div className='icons'>
-            <a className='icon-button' href='https://github.com/aprillebalsom'>
+            <a className='icon-button' target='_blank' href='https://github.com/aprillebalsom'>
               <FontAwesomeIcon icon='code-branch' />
             </a>
 
-            <a className='icon-button' href='https://instagram.com/apesfilmdiary'>
+            <a className='icon-button' target='_blank' href='https://instagram.com/apesfilmdiary'>
               <FontAwesomeIcon icon={['fab', 'instagram']} />
             </a>
 
-            <a className='icon-button' href='https://twitter.com/apebalsom'>
+            <a className='icon-button' target='_blank' href='https://twitter.com/apebalsom'>
               <FontAwesomeIcon icon={['fab', 'twitter']} />
             </a>
           </div>

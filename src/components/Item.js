@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import ToggleDisplay from 'react-toggle-display';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
