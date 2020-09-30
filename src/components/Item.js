@@ -34,7 +34,9 @@ class Item extends React.Component {
 
 						{/* toggles the display of the star sticker */}
 						<ToggleDisplay show={this.props.showSticker}>
-							<span className='sr-only'>This wallpaper is in your wishlist!</span>
+							<span className='sr-only'>
+								This wallpaper is in your wishlist!
+							</span>
 							<FontAwesomeIcon  className='star-sticker'icon='star' title='starred'/>
 						</ToggleDisplay>
 

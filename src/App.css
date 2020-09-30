@@ -26,6 +26,12 @@ button {
   margin: 0;
 }
 
+body {
+  background-image: url('https://drive.google.com/uc?export=view&id=1rTADLiO17cPnC9r2-h6awIfYiw4RrMbu');
+  background-size: contain;
+  background-repeat: repeat;
+}
+
 li {
   list-style: none;
 }
@@ -111,12 +117,6 @@ img {
   margin: auto;
 }
 
-.background-img{
-  background-image: url('https://drive.google.com/uc?export=view&id=1rTADLiO17cPnC9r2-h6awIfYiw4RrMbu');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .skip-link {
   background-color: #ddd;
   
@@ -144,6 +144,8 @@ img {
   position: sticky;
   top: 0;
   z-index: 10;
+
+  overflow: hidden;
 }
 
 .flex-header {
@@ -199,7 +201,7 @@ nav a:focus,
 
 /* HEADER STYLES -----------------------------------------------------*/
 header {
-  min-height: 60vh; 
+  height: 60vh; 
 }
 
 .flex-container {
@@ -271,7 +273,7 @@ header {
 }
 
 .wishlist-flex p {
-  width: 40%;
+  width: 50%;
 }
 
 .wishlist-flex button {
@@ -279,6 +281,7 @@ header {
 
   font-size: clamp( 2.2rem, 3vw, 3.6rem);
 }
+
 
 /* MODAL STYLES  -----------------------------------------------------*/
 .modal {
@@ -343,13 +346,13 @@ header {
 
 @keyframes animatetop {
   from {
-      top: -300px; 
-      opacity: 0;
+    top: -300px; 
+    opacity: 0;
   }
 
   to {
-      top: 0; 
-      opacity: 1;
+    top: 0; 
+    opacity: 1;
   }
 }
 
@@ -401,6 +404,7 @@ footer {
 
 footer p {
   font-style: normal;
+
   padding: 3px 0;
 }
 
@@ -426,9 +430,8 @@ footer p {
 
 /* portrait tablet + desktop */
 @media(max-width: 940px) {
-
-  body {
-    background-size: cover;
+  header {
+    height: 40vh;
   }
 
   .wishlist {
@@ -438,6 +441,10 @@ footer p {
 
 /* landscape phone + protrait tablet */
 @media(max-width: 768px) {
+
+  body {
+    background-image: url('https://drive.google.com/uc?export=view&id=1z7YtycSIP1xv-XkOnYczmfZDsv5Q6LKj');
+  }
 
   nav a:hover,
   nav a:focus,
@@ -460,6 +467,11 @@ footer p {
     width: 100%;
   }
 
+  .modal-content {
+    width: 50%;
+    height: 30%;
+  }
+
   .items ul {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -479,16 +491,20 @@ footer p {
 /* landscape phones + down */
 @media(max-width: 480px) {
 
-  header {
-    min-height: 50vh;
-  }
-
   .wrapper {
     width: 95%;
   }
 
   .flex-header {
     flex-direction: row;
+  }
+
+  .header-text {
+    padding: 0 5px 20px;
+  }
+
+  h1 {
+    padding-top: 120px
   }
 
   nav ul {
@@ -505,6 +521,11 @@ footer p {
 
   .wishlist-flex img {
     padding: 5px;
+  }
+
+  .modal-content {
+    width: 70%;
+    height: 30%;
   }
 
   .items ul {

@@ -16,10 +16,6 @@ import Footer from './components/Footer.js';
 
 library.add(fab, faShoppingCart, faStar, faCodeBranch, faTrash, faTimes);
 
-// TODO
-// ensure all icons have addtional sr-only info
-//push to gh-pages and test 
-
 class App extends React.Component {
 	constructor() {
 		super();
@@ -106,61 +102,65 @@ class App extends React.Component {
 		this.setState({
 			showModal: !this.state.showModal,
 		});
-	}
+	};
 
 	render() {
 		return (
 			<div className='App'>
-				<div className='background-img'>
-					
-					{/* skiplink for accessibility*/}
-					<a href='#shop' class='skip-link'>
-						Skip to Main Content
-					</a>
-					<Nav toggleList={this.wishlistToggle} />
-					<header id='home'>
-						<div className='flex-container wrapper'>
-							<Header />
 
-							<ToggleDisplay show={this.state.showWishlist}>
-								<section className='wishlist'>
-									<div className='wishlist-info'>
-										<h2>Wishlist</h2>
+				{/* skiplink for accessibility*/}
+				<a href='#shop' class='skip-link'>
+					Skip to Main Content
+				</a>
 
-										<ul>
-											{/* map through wishlist array and pass info into wishlist component to be displayed */}
-											{this.state.wishlist.map((listItem) => {
-												return (
-													<Wishlist
-														key={listItem.key}
-														name={listItem.item.title}
-														src={listItem.item.src}
-														alt={listItem.item.alt}
-														removeItem={() => {
-															this.removeItem(listItem.key);
-														}}
-														itemKey={listItem.key}
-														trash={faTrash}
-													/>
-												);
-											})}
-										</ul>
+				<Nav toggleList={this.wishlistToggle} />
+				
+				<header id='home'>
+					<div className='flex-container wrapper'>
 
-										<button
-											className='exit-button icon-button'
-											onClick={this.wishlistToggle}
-										>
-											<span className='sr-only'>
-												Close the wishlist by clicking here.
-											</span>
-											<FontAwesomeIcon icon='times' title='close' />
-										</button>
-									</div>
-								</section>
-							</ToggleDisplay>
-						</div>
-					</header>
-				</div>
+						<Header />
+
+						<ToggleDisplay show={this.state.showWishlist}>
+							<section className='wishlist'>
+								<div className='wishlist-info'>
+									<h2>Wishlist</h2>
+
+									<ul>
+										{/* map through wishlist array and pass info into wishlist component to be displayed */}
+										{this.state.wishlist.map((listItem) => {
+											return (
+												<Wishlist
+													key={listItem.key}
+													name={listItem.item.title}
+													src={listItem.item.src}
+													alt={listItem.item.alt}
+													removeItem={() => {
+														this.removeItem(listItem.key);
+													}}
+													itemKey={listItem.key}
+													trash={faTrash}
+												/>
+											);
+										})}
+									</ul>
+
+									<button
+										className='exit-button icon-button'
+										onClick={this.wishlistToggle}
+									>
+										<span className='sr-only'>
+											Close the wishlist by clicking here.
+										</span>
+										<FontAwesomeIcon icon='times' title='close' />
+									</button>
+								</div>
+							</section>
+						</ToggleDisplay>
+					</div>
+				</header>
+				
+
+				{/* start of main */}
 				<main className='items' id='shop'>
 					<section className='wrapper'>
 						{/* display modal when a user tries to add a wishlist item that has already been added */}
@@ -217,6 +217,7 @@ class App extends React.Component {
 						</ul>
 					</section>
 				</main>
+
 				<Footer />
 			</div>
 		);
