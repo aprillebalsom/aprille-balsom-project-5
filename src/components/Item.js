@@ -9,13 +9,13 @@ class Item extends React.Component {
 	//if no, call function that changes the state
 	toggleSticker = () => {
 		this.props.showSticker === true
-			? this.callAlertFunc()
+			? this.callModalFunc()
 			: this.updateStickerState();
 	};
 
 
-	callAlertFunc = () => {
-		this.props.showAlert();
+	callModalFunc = () => {
+		this.props.showModal();
 	};
 
 	// change the state of the sticker and call then next function

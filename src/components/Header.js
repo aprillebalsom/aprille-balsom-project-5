@@ -13,6 +13,6 @@ const Header = () => {
                 </p>
         </section>
     )
-}
+};
 
 export default Header;

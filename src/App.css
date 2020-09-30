@@ -1,4 +1,4 @@
-/* SETUP SNIPPET */
+/* SETUP SNIPPET -----------------------------------------------------*/
 html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
 
 .clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
@@ -10,7 +10,7 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
 
-/* STRIPPING STYLES */
+/* STRIPPING STYLES -------------------------------------------------*/
 html,
 body, 
 img, 
@@ -40,10 +40,9 @@ button {
 }
 
 /* TODO update fontsize with clamp */
-/* GLOBAL STYLES */
+/* GLOBAL STYLES -----------------------------------------------------*/
 html {
   font-size: 62.5%;
-  font-weight: 400;
 }
 
 body {
@@ -51,33 +50,45 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   
+  /* color: #303030; */
+
+  /* text-transform: lowercase;
+  letter-spacing: 2px; */
+}
+
+h1, 
+h2,
+h3,
+p,
+a,
+button{
   color: #303030;
 
+  font-family: goudy-old-style, serif;
   text-transform: lowercase;
   letter-spacing: 2px;
+  font-weight: 400;
 }
 
 h1 {
   font-size: 5rem;
-  font-family: goudy-old-style, serif;
 
   padding: 150px 0 5px 0;
 }
 
 h2 {
   font-size: 4rem;
-  font-weight: 400;
-
+  
   padding: 20px 0;
 }
 
 h3 {
   font-size: 3rem;
-  font-weight: 400;
 }
 
 p {
   font-size: 1.8rem;
+  font-style: italic;
 }
 
 img {
@@ -87,12 +98,8 @@ img {
 
 button {
   background-color: #fffcf5;
-  color: #303030;
-
-  font-family: goudy-old-style, serif;
+  
   font-size: 1.6rem;
-  text-transform: lowercase;
-  letter-spacing: 2px;
 
   padding: 15px 25px;
   margin: 10px 0;
@@ -112,13 +119,33 @@ button:focus {
   margin: auto;
 }
 
-/* NAVIGATION STYLES */
+.skip-link {
+  background-color: #ddd;
+  
+  text-align: center;
+  font-size: 2rem;
+
+  border-radius: 4px;
+  width: 225px;
+  padding: 5px;
+
+  position: absolute;
+  left: -1000px;
+  top: 0;
+  z-index: 30;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* NAVIGATION STYLES -------------------------------------------------*/
 .nav {
   background-color:#fffcf580;
 
   position: sticky;
   top: 0;
-   z-index: 10;
+  z-index: 10;
 }
 
 .flex-header {
@@ -134,7 +161,6 @@ nav ul {
 
 nav a {
   font-size: 1.7rem;
-  font-family: goudy-old-style, serif;
   letter-spacing: 3px;
   text-transform: uppercase;
 
@@ -158,9 +184,7 @@ nav a:focus {
   font-size: 2rem;
 }
 
-.nav-icons button,
-.wishlist-flex button,
-.icons a {
+.icon-button {
   opacity: .85;
 
   padding: 10px;
@@ -168,28 +192,20 @@ nav a:focus {
   transition: all .4s;
 }
 
-/* TODO assign a class */
-.nav-icons button:hover, 
-.nav-icons button:focus,
-.wishlist-flex button:hover, 
-.wishlist-flex button:focus,
-.close-modal:hover, 
-.close-modal:focus,
-.icons a:hover,
-.icons a:focus {
+.icon-button:hover,
+.icon-button:focus{
   background: none;
+
   opacity: .7;
 }
 
 
-/* HEADER STYLES */
+/* HEADER STYLES -----------------------------------------------------*/
 header {
   min-height: 60vh; 
 }
 
 .flex-container {
-  font-family: goudy-old-style, serif;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -198,21 +214,18 @@ header {
 .sunday {
   font-family: ltc-goudy-oldstyle-pro, serif;
   font-style: italic;
-  font-weight: 400;
   letter-spacing: 3px;
 }
 
 .homework {
   font-weight: 500;
-  letter-spacing: 2px;
 }
 
 .tagline {
   font-size: 2.2rem;
-  font-style: italic;
 }
 
-/* WISHLIST STYLES */
+/* WISHLIST STYLES ---------------------------------------------------*/
 .wishlist {
   background-image: url('https://drive.google.com/uc?export=view&id=1NkeemhFav0YXOoyG8uN4341pm5VIhZg6');
   background-size: cover;
@@ -227,33 +240,32 @@ header {
   top: 0;
   right: 0;
   z-index: 20;
+
   overflow-y: scroll; 
 } 
 
 .wishlist-header {
-  display: flex;
+  position: relative;
 }
 
 .wishlist-header h2 {
   font-size: 4.5rem;
 
-  padding-top: 60px;
-  width: calc(75% - 20px);
+  padding: 60px 0 0 120px;
 }
 
-.wishlist-header button {
+.exit-button {
   background: none;
 
-  font-size: 2.8rem;
+  font-size: 3rem;
 
-  width: calc(25% - 20px);
-  margin: 0;
-  padding: 0 50px 50px 0;
-  
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .wishlist-flex {
-  padding: 20px 20px 20px 110px;
+  padding: 20px 20px 20px 120px;
 
   display: flex;
   justify-content: space-between;
@@ -270,12 +282,11 @@ header {
 
 .wishlist-flex button {
   background: none;
-  color: #303030;
 
   font-size: 2.4rem;
 }
 
-/* MODAL STYLES */
+/* MODAL STYLES  -----------------------------------------------------*/
 .modal {
   background-color: #30303090;
 
@@ -297,7 +308,7 @@ header {
   padding: 20px; 
   margin: auto; 
   width: 30%;  
-  height: 25%;
+  height: 30%;
 
   display: flex;
   flex-direction: column;
@@ -311,25 +322,29 @@ header {
 }
 
 .modal-content h3 {
-  padding-top: 20px;
   letter-spacing: 3px;
+
+  padding-top: 20px;
 }
 
 .modal-content p {
-  font-style: none;
-  padding: 30px 0;
+  font-style: normal;
 }
 
-/* TODO fix */
-.modal-content span {
+.modal-content p span {
+  color: #e27474;
+  
   font-style: italic;
+  font-size: 2rem;
 }
 
 .close-modal {
-  font-size: 3rem;  
   background: none;
+
+  font-size: 3rem;  
   
   margin: 10px;
+
   position: absolute;
   top: 0;
   left: 0;
@@ -347,20 +362,19 @@ header {
   }
 }
 
-
-/* ITEM STYLES */
+/* ITEM STYLES ----------------------------------------------------- */
 .items {
   background-color: #ddd;
 
   text-align: center;
-  font-family: goudy-old-style, serif;
  
   padding: 60px 0;
 }
 
 .item-img {
-  position: relative;
   padding-bottom: 10px;
+
+  position: relative;
 }
 
 .star-sticker {
@@ -374,7 +388,6 @@ header {
 }
 
 .items p {
-  font-style: italic;
 
   padding-top: 5px;
 }
@@ -390,17 +403,16 @@ header {
   
 }
 
-/* FOOTER STYLES */
+/* FOOTER STYLES ----------------------------------------------------- */
 footer {
   background-color: #fffcf5;
-
-  font-family: goudy-old-style, serif;
 
   padding: 30px 0;
 }
 
 footer p {
   font-size: 1.6rem;
+  font-style: normal;
 }
 
 .footer-flex {
@@ -421,12 +433,11 @@ footer p {
 }
 
 
-/* MEDIA QUERIES */
+/* MEDIA QUERIES  -----------------------------------------------------*/
 
 /* portrait tablet + desktop */
 @media(max-width: 940px) {
 
-  /* TODO don't love, maybe update? */
   body {
     background-size: cover;
   }
@@ -434,14 +445,23 @@ footer p {
   .wishlist {
     width: 70%;
   }
-
 }
 
 /* landscape phone + protrait tablet */
 @media(max-width: 768px) {
 
+  nav a:hover,
+  nav a:focus {
+    border-bottom: none;
+
+    font-weight: 600;
+
+    padding-bottom: 0;
+  }
+
   .flex-header {
-    padding-top: 20px;
+    padding: 20px 0;
+
     flex-direction: column;
   }
 
@@ -452,7 +472,6 @@ footer p {
   .items ul {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 40px;
   }
  
   .footer-flex {
@@ -464,7 +483,6 @@ footer p {
     padding-top: 20px;
     order: 1;
   }
-
 }
 
 /* landscape phones + down */
@@ -482,13 +500,18 @@ footer p {
     flex-direction: row;
   }
 
-  /* TODO toggle nav ul */
   nav ul {
     flex-direction: column;
   }
 
   .wishlist {
     padding: 15px 15px 60px;
+  }
+
+  .wishlist-header h2 {
+  font-size: 4.5rem;
+
+  padding: 60px 0 0 0;
   }
 
   .wishlist-flex {
@@ -500,7 +523,6 @@ footer p {
   }
 
   .items ul {
-    /* TODO can you condense?! */
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     gap: 60px;
@@ -509,6 +531,5 @@ footer p {
   .item {
     margin: 0 20px;
   }
-
 }
 
