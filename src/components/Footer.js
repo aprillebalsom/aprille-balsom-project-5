@@ -7,7 +7,7 @@ const Footer = () => {
 			<div className='footer-flex wrapper'>
 				<div className='footer-text' id='about'>
 					<p>
-						Created at 
+						Created at
 						<a
 							className='footer-link'
 							target='_blank'
@@ -19,7 +19,7 @@ const Footer = () => {
 					</p>
 
 					<p>
-						Design + wallpapers by 
+						Design + wallpapers by
 						<a
 							className='footer-link'
 							target='_blank'
@@ -43,8 +43,7 @@ const Footer = () => {
 							href='https://github.com/aprillebalsom'
 						>
 							<span className='sr-only'>
-								Click here to be brought to Aprille's GitHub page in a new
-								window.
+								GitHub will open in a new window.
 							</span>
 							<FontAwesomeIcon icon='code-branch' title='GitHub' />
 						</a>
@@ -56,8 +55,7 @@ const Footer = () => {
 							href='https://instagram.com/apesfilmdiary'
 						>
 							<span className='sr-only'>
-								Click here to be brought to Aprille's Instagram profile for film
-								photography in a new window.
+								Instagram will open in a new window.
 							</span>
 							<FontAwesomeIcon icon={['fab', 'instagram']} title='Instagram' />
 						</a>
@@ -69,8 +67,7 @@ const Footer = () => {
 							href='https://twitter.com/apebalsom'
 						>
 							<span className='sr-only'>
-								Click here to be brought to Aprille's Twitter page in a new
-								window.
+								Twitter will open in a new window.
 							</span>
 							<FontAwesomeIcon icon={['fab', 'twitter']} title='Twitter' />
 						</a>
