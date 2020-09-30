@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/aprille-balsom-project-5/precache-manifest.643703f2e2a6d4af23aefbc2764e5e27.js"
+  "/aprille-balsom-project-5/precache-manifest.7e45870eea55c2cf82ee69f1a74d7abe.js"
 );
 
 self.addEventListener('message', (event) => {
