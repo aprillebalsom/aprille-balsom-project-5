@@ -20,13 +20,13 @@ class Nav extends React.Component {
 			},
 			//call the function that passes the state back to the parent
 			() => {
-				this.transferState(this.state.showWishlist);
+				this.callToggleFunc(this.state.showWishlist);
 			}
 			);
   	};
 
-	//create a function that sends current wishlist state back to parent to display/hide the wishlist
-	transferState = (stateOfwishList) => {
+	//create a function that calls a function in the parent component and passes the  current wishlist state as an arugment to display/hide the wishlist
+	callToggleFunc = (stateOfwishList) => {
 		this.props.toggleList(stateOfwishList);
 	};
 
@@ -34,7 +34,6 @@ class Nav extends React.Component {
 		return (
 			<div className='nav'>
 				<div className='flex-header wrapper'>
-
 					<nav>
 						<ul>
 							<li>
@@ -59,23 +58,22 @@ class Nav extends React.Component {
 						<li>
 							{/* when button is clicked, call the toggle wishlist function*/}
 							<button className='icon-button' onClick={this.toggleWishlist}>
-								<p className='sr-only'>
-									Click this "star" icon to open your wishlist.
-								</p>
-								<FontAwesomeIcon icon='star' />
+								<span className='sr-only'>
+									Click this here to open your wishlist.
+								</span>
+								<FontAwesomeIcon icon='star' title='wishlist' />
 							</button>
 						</li>
 
 						<li>
 							<button className='icon-button'>
-								<p className='sr-only'>
-									Click the "shopping cart" icon to open your shopping cart.
-								</p>
-								<FontAwesomeIcon icon='shopping-cart' />
+								<span className='sr-only'>
+									Click the here to open your shopping cart.
+								</span>
+								<FontAwesomeIcon icon='shopping-cart' title='shopping cart'/>
 							</button>
 						</li>
 					</ul>
-					
 				</div>
 			</div>
 		);

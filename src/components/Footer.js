@@ -3,48 +3,82 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = () => {
   return (
-    <footer>
-      <div className='footer-flex wrapper'>
-        <div className='footer-text' id='about'>
+		<footer>
+			<div className='footer-flex wrapper'>
+				<div className='footer-text' id='about'>
+					<p>
+						Created at 
+						<a
+							className='footer-link'
+							target='_blank'
+							rel='noopener noreferrer'
+							href='https://junocollege.com/'
+						>
+							Juno College
+						</a>
+					</p>
 
-          <p>
-            Created at <a target='_blank' 
-           rel="noopener noreferrer" href='https://junocollege.com/'>Juno College</a>
-          </p>
+					<p>
+						Design + wallpapers by 
+						<a
+							className='footer-link'
+							target='_blank'
+							rel='noopener noreferrer'
+							href='https://apesfilmdiary.com/'
+							id='blog'
+						>
+							Aprille Balsom
+						</a>
+					</p>
+				</div>
 
-          <p>
-            Design + wallpapers by 
-            <a target='_blank' 
-           rel="noopener noreferrer" href='https://apesfilmdiary.com/' id='blog'> Aprille Balsom</a>
-          </p>
+				<div className='footer-icons' id='contact'>
+					<p>Join us on Social</p>
 
-        </div>
+					<div className='icons'>
+						<a
+							className='icon-button'
+							target='_blank'
+							rel='noopener noreferrer'
+							href='https://github.com/aprillebalsom'
+						>
+							<span className='sr-only'>
+								Click here to be brought to Aprille's GitHub page in a new
+								window.
+							</span>
+							<FontAwesomeIcon icon='code-branch' title='GitHub' />
+						</a>
 
-        <div className='footer-icons' id='contact'>
+						<a
+							className='icon-button'
+							target='_blank'
+							rel='noopener noreferrer'
+							href='https://instagram.com/apesfilmdiary'
+						>
+							<span className='sr-only'>
+								Click here to be brought to Aprille's Instagram profile for film
+								photography in a new window.
+							</span>
+							<FontAwesomeIcon icon={['fab', 'instagram']} title='Instagram' />
+						</a>
 
-          <p>join us on social</p>
-
-          <div className='icons'>
-            <a className='icon-button' target='_blank' 
-           rel="noopener noreferrer" href='https://github.com/aprillebalsom'>
-              <FontAwesomeIcon icon='code-branch' />
-            </a>
-
-            <a className='icon-button' target='_blank' 
-           rel="noopener noreferrer" href='https://instagram.com/apesfilmdiary'>
-              <FontAwesomeIcon icon={['fab', 'instagram']} />
-            </a>
-
-            <a className='icon-button' target='_blank' 
-           rel="noopener noreferrer" href='https://twitter.com/apebalsom'>
-              <FontAwesomeIcon icon={['fab', 'twitter']} />
-            </a>
-          </div>
-          
-        </div>
-      </div>
-    </footer>
-  );
+						<a
+							className='icon-button'
+							target='_blank'
+							rel='noopener noreferrer'
+							href='https://twitter.com/apebalsom'
+						>
+							<span className='sr-only'>
+								Click here to be brought to Aprille's Twitter page in a new
+								window.
+							</span>
+							<FontAwesomeIcon icon={['fab', 'twitter']} title='Twitter' />
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	);
 } 
 
 export default Footer;

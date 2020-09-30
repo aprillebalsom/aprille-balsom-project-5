@@ -12,8 +12,8 @@ class Wishlist extends React.Component {
 
         {/* on click, call the removeItem function in the app.js component */}
         <button className='icon-button' onClick={this.props.removeItem}>
-          <p className='sr-only'>Click the "trash can" icon to remove this item from your wishlist.</p>
-          <FontAwesomeIcon icon={this.props.trash} />
+          <span className='sr-only'>Click here to remove this item from your wishlist.</span>
+          <FontAwesomeIcon icon={this.props.trash} title='remove item'/>
         </button>
         
       </li>

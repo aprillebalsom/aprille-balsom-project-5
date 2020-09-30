@@ -18,9 +18,6 @@ library.add(fab, faShoppingCart, faStar, faCodeBranch, faTrash, faTimes);
 
 // TODO
 // ensure all icons have addtional sr-only info
-//add skiplink
-//remove hover states on mobile nav
-//merge branch
 //push to gh-pages and test 
 
 class App extends React.Component {
@@ -114,62 +111,65 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className='App'>
-				{/* skiplink */}
-				<a href='#shop' class='skip-link'>
-					Skip to Main Content
-				</a>
-				<Nav toggleList={this.wishlistToggle} />
-				<header id='home'>
-					<div className='flex-container wrapper'>
-						<Header />
+				<div className='background-img'>
+					
+					{/* skiplink for accessibility*/}
+					<a href='#shop' class='skip-link'>
+						Skip to Main Content
+					</a>
+					<Nav toggleList={this.wishlistToggle} />
+					<header id='home'>
+						<div className='flex-container wrapper'>
+							<Header />
 
-						<ToggleDisplay show={this.state.showWishlist}>
-							<section className='wishlist'>
-								<div className='wishlist-header'>
-									<h2>Wishlist</h2>
+							<ToggleDisplay show={this.state.showWishlist}>
+								<section className='wishlist'>
+									<div className='wishlist-info'>
+										<h2>Wishlist</h2>
 
-									<ul>
-										{/* map through wishlist array and pass info into wishlist component to be displayed */}
-										{this.state.wishlist.map((listItem) => {
-											return (
-												<Wishlist
-													key={listItem.key}
-													name={listItem.item.title}
-													src={listItem.item.src}
-													alt={listItem.item.alt}
-													removeItem={() => {
-														this.removeItem(listItem.key);
-													}}
-													itemKey={listItem.key}
-													trash={faTrash}
-												/>
-											);
-										})}
-									</ul>
+										<ul>
+											{/* map through wishlist array and pass info into wishlist component to be displayed */}
+											{this.state.wishlist.map((listItem) => {
+												return (
+													<Wishlist
+														key={listItem.key}
+														name={listItem.item.title}
+														src={listItem.item.src}
+														alt={listItem.item.alt}
+														removeItem={() => {
+															this.removeItem(listItem.key);
+														}}
+														itemKey={listItem.key}
+														trash={faTrash}
+													/>
+												);
+											})}
+										</ul>
 
-									<button
-										className='exit-button icon-button'
-										onClick={this.wishlistToggle}
-									>
-										<p className='sr-only'>
-											Close the wishlist by clicking the "X", here.
-										</p>
-										<FontAwesomeIcon icon='times' />
-									</button>
-								</div>
-							</section>
-						</ToggleDisplay>
-					</div>
-				</header>
+										<button
+											className='exit-button icon-button'
+											onClick={this.wishlistToggle}
+										>
+											<span className='sr-only'>
+												Close the wishlist by clicking here.
+											</span>
+											<FontAwesomeIcon icon='times' title='close' />
+										</button>
+									</div>
+								</section>
+							</ToggleDisplay>
+						</div>
+					</header>
+				</div>
 				<main className='items' id='shop'>
 					<section className='wrapper'>
-						{/* display modal when a user tries to add a wishlist item that had already been added */}
+						{/* display modal when a user tries to add a wishlist item that has already been added */}
 						<ToggleDisplay show={this.state.showModal}>
 							<div className='modal'>
 								<div className='modal-content'>
 									<h3>wow!</h3>
 									<p>
-										looks like you 
+										looks like you
 										<span>
 											<em> really </em>
 										</span>
@@ -179,10 +179,10 @@ class App extends React.Component {
 										className='close-modal icon-button'
 										onClick={this.displayModal}
 									>
-										<p className='sr-only'>
-											Close this alert by clicking the "X", here.
-										</p>
-										<FontAwesomeIcon icon='times' />
+										<span className='sr-only'>
+											Close this pop-up modal by clicking here.
+										</span>
+										<FontAwesomeIcon icon='times' title='close' />
 									</button>
 								</div>
 							</div>

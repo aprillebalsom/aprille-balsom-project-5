@@ -39,21 +39,10 @@ button {
   border: none;
 }
 
-/* TODO update fontsize with clamp */
+
 /* GLOBAL STYLES -----------------------------------------------------*/
 html {
   font-size: 62.5%;
-}
-
-body {
-  background-image: url('https://drive.google.com/uc?export=view&id=1rTADLiO17cPnC9r2-h6awIfYiw4RrMbu');
-  background-size: contain;
-  background-repeat: no-repeat;
-  
-  /* color: #303030; */
-
-  /* text-transform: lowercase;
-  letter-spacing: 2px; */
 }
 
 h1, 
@@ -91,6 +80,7 @@ p {
 }
 
 p,
+a,
 button {
   font-size: clamp(1.6rem, 3vw, 2rem);
 }
@@ -121,12 +111,17 @@ img {
   margin: auto;
 }
 
+.background-img{
+  background-image: url('https://drive.google.com/uc?export=view&id=1rTADLiO17cPnC9r2-h6awIfYiw4RrMbu');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .skip-link {
   background-color: #ddd;
   
   text-align: center;
   font-size: clamp(1.8rem, 4vw, 3rem);
-  /* TODO stopped here adding in clamp */
 
   border-radius: 4px;
   width: 225px;
@@ -163,19 +158,18 @@ nav ul {
 }
 
 nav a {
-  font-size: 1.7rem;
   letter-spacing: 3px;
   text-transform: uppercase;
 
-  padding: 10px 20px;
+  padding: 10px 20px 5px;
 }
 
 nav a:hover,
-nav a:focus {
+nav a:focus,
+.footer-link:hover,
+.footer-link:focus {
   border-bottom: 1px solid #30303090;
-
-  padding-bottom: 5px;
-}
+} 
 
 .nav-icons{
   display: flex;
@@ -225,7 +219,7 @@ header {
 }
 
 .tagline {
-  font-size: 2.2rem;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
 }
 
 /* WISHLIST STYLES ---------------------------------------------------*/
@@ -247,28 +241,25 @@ header {
   overflow-y: scroll; 
 } 
 
-.wishlist-header {
-  position: relative;
+.wishlist-info {
+  padding: 50px 20px 20px 165px;
 }
 
-.wishlist-header h2 {
-  font-size: 4.5rem;
+.exit-button,
+.close-modal {
+  background: none;
 
-  padding: 60px 0 0 120px;
+  font-size: clamp(2.6rem, 3vw, 3.4rem);
 }
 
 .exit-button {
-  background: none;
-
-  font-size: 3rem;
-
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 5%;
+  left: 8%;
 }
 
 .wishlist-flex {
-  padding: 20px 20px 20px 120px;
+  padding: 20px 0;
 
   display: flex;
   justify-content: space-between;
@@ -280,13 +271,13 @@ header {
 }
 
 .wishlist-flex p {
-  width: 50%;
+  width: 40%;
 }
 
 .wishlist-flex button {
   background: none;
 
-  font-size: 2.4rem;
+  font-size: clamp( 2.2rem, 3vw, 3.6rem);
 }
 
 /* MODAL STYLES  -----------------------------------------------------*/
@@ -305,7 +296,7 @@ header {
 }
 
 .modal-content {
-  background-color: #ddd;
+  background-color: #FFFCF5;
 
   border-radius: 10px;
   padding: 20px; 
@@ -335,17 +326,14 @@ header {
 }
 
 .modal-content p span {
-  color: #e27474;
-  
+  color: #C84646;
+
+  font-weight: 500;
   font-style: italic;
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 2vw, 2.7rem);
 }
 
 .close-modal {
-  background: none;
-
-  font-size: 3rem;  
-  
   margin: 10px;
 
   position: absolute;
@@ -383,15 +371,14 @@ header {
 .star-sticker {
   color: #ffd5a4;
 
-  font-size: 3rem;
+  font-size: clamp(2.6rem, 3vw, 3.4rem);
 
   position: absolute;
-  top: 2%;
+  top: 3%;
   right: 5%;
 }
 
 .items p {
-
   padding-top: 5px;
 }
 
@@ -403,7 +390,6 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 60px;
-  
 }
 
 /* FOOTER STYLES ----------------------------------------------------- */
@@ -414,8 +400,8 @@ footer {
 }
 
 footer p {
-  font-size: 1.6rem;
   font-style: normal;
+  padding: 3px 0;
 }
 
 .footer-flex {
@@ -424,15 +410,15 @@ footer p {
   align-items: center;
 }
 
-.footer-icons p {
-  font-size: 1.8rem;
+.footer-link {
+  padding: 0 5px;
 }
 
 .icons {
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
   text-align: center;
 
-  padding: 10px;
+  padding: 0 10px;
 }
 
 
@@ -454,7 +440,9 @@ footer p {
 @media(max-width: 768px) {
 
   nav a:hover,
-  nav a:focus {
+  nav a:focus,
+  .footer-link:hover,
+  .footer-link:focus {
     border-bottom: none;
 
     font-weight: 600;
@@ -507,18 +495,12 @@ footer p {
     flex-direction: column;
   }
 
-  .wishlist {
-    padding: 15px 15px 60px;
+  .wishlist-info {
+    padding: 40px 15px 20px;
   }
 
-  .wishlist-header h2 {
-  font-size: 4.5rem;
-
-  padding: 60px 0 0 0;
-  }
-
-  .wishlist-flex {
-    padding: 20px 0;
+  .exit-button {
+    top: 2%;
   }
 
   .wishlist-flex img {
