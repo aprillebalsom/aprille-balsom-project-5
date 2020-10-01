@@ -328,6 +328,7 @@ header {
 
 .modal-content h3 {
   letter-spacing: 3px;
+  font-style: normal;
 
   padding-top: 20px;
 }
