@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/aprille-balsom-project-5/static/css/main.643045cd.chunk.css",
-    "main.js": "/aprille-balsom-project-5/static/js/main.f5383563.chunk.js",
-    "main.js.map": "/aprille-balsom-project-5/static/js/main.f5383563.chunk.js.map",
-    "runtime-main.js": "/aprille-balsom-project-5/static/js/runtime-main.c0f96701.js",
-    "runtime-main.js.map": "/aprille-balsom-project-5/static/js/runtime-main.c0f96701.js.map",
-    "static/js/2.3c1cf369.chunk.js": "/aprille-balsom-project-5/static/js/2.3c1cf369.chunk.js",
-    "static/js/2.3c1cf369.chunk.js.map": "/aprille-balsom-project-5/static/js/2.3c1cf369.chunk.js.map",
-    "index.html": "/aprille-balsom-project-5/index.html",
-    "precache-manifest.8611a6e69b7d16480de893248098f93a.js": "/aprille-balsom-project-5/precache-manifest.8611a6e69b7d16480de893248098f93a.js",
-    "service-worker.js": "/aprille-balsom-project-5/service-worker.js",
-    "static/css/main.643045cd.chunk.css.map": "/aprille-balsom-project-5/static/css/main.643045cd.chunk.css.map",
-    "static/js/2.3c1cf369.chunk.js.LICENSE.txt": "/aprille-balsom-project-5/static/js/2.3c1cf369.chunk.js.LICENSE.txt"
+    "main.css": "/sunday-homework/static/css/main.643045cd.chunk.css",
+    "main.js": "/sunday-homework/static/js/main.bc395514.chunk.js",
+    "main.js.map": "/sunday-homework/static/js/main.bc395514.chunk.js.map",
+    "runtime-main.js": "/sunday-homework/static/js/runtime-main.847140a6.js",
+    "runtime-main.js.map": "/sunday-homework/static/js/runtime-main.847140a6.js.map",
+    "static/js/2.84307f2f.chunk.js": "/sunday-homework/static/js/2.84307f2f.chunk.js",
+    "static/js/2.84307f2f.chunk.js.map": "/sunday-homework/static/js/2.84307f2f.chunk.js.map",
+    "index.html": "/sunday-homework/index.html",
+    "precache-manifest.b6c82cc05b961158b76bd640aed16dae.js": "/sunday-homework/precache-manifest.b6c82cc05b961158b76bd640aed16dae.js",
+    "service-worker.js": "/sunday-homework/service-worker.js",
+    "static/css/main.643045cd.chunk.css.map": "/sunday-homework/static/css/main.643045cd.chunk.css.map",
+    "static/js/2.84307f2f.chunk.js.LICENSE.txt": "/sunday-homework/static/js/2.84307f2f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c0f96701.js",
-    "static/js/2.3c1cf369.chunk.js",
+    "static/js/runtime-main.847140a6.js",
+    "static/js/2.84307f2f.chunk.js",
     "static/css/main.643045cd.chunk.css",
-    "static/js/main.f5383563.chunk.js"
+    "static/js/main.bc395514.chunk.js"
   ]
 }
